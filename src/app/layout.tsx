@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
+import { ToolPreviewProvider } from "@/components/tool-preview-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -85,11 +86,13 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <Header />
-        <div id="main-content" className="flex-1">
-          {children}
-        </div>
-        <Footer />
+        <ToolPreviewProvider>
+          <Header />
+          <div id="main-content" className="flex-1">
+            {children}
+          </div>
+          <Footer />
+        </ToolPreviewProvider>
       </body>
     </html>
   );
