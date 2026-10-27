@@ -1,4 +1,5 @@
 import Link from "next/link";
+import ToolsMenu from "@/components/tools-menu";
 
 export default function Header() {
   return (
@@ -8,9 +9,7 @@ export default function Header() {
           iamnoobs
         </Link>
         <nav aria-label="Main" className="flex items-center gap-5 text-sm font-medium">
-          <Link href="/#tools" className="text-muted-foreground hover:text-foreground">
-            Tools
-          </Link>
+          <ToolsMenu />
           <Link href="/articles" className="text-muted-foreground hover:text-foreground">
             Articles
           </Link>
