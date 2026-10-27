@@ -9,9 +9,12 @@ export default function Footer() {
             &copy; {new Date().getFullYear()} iamnoobs.com — Free online tools for everyone.
           </p>
           <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
+            <Link href="/articles" className="hover:text-foreground transition-colors">Articles</Link>
+            <Link href="/about" className="hover:text-foreground transition-colors">About</Link>
             <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
             <Link href="/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
+            <Link href="/affiliate-disclosure" className="hover:text-foreground transition-colors">Affiliate Disclosure</Link>
             <Link href="/contact" className="hover:text-foreground transition-colors">Contact &amp; Feedback</Link>
           </nav>
         </div>

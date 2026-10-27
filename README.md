@@ -29,6 +29,23 @@ To learn more about Next.js, take a look at the following resources:
 
 You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
 
+## Writing articles
+
+Copy `src/content/article-template.md` to `src/content/articles/<slug>.md`, then
+replace its example frontmatter and outline with your article. The filename and
+frontmatter slug must match and use lowercase kebab-case.
+
+Put each article's images in `public/articles/<slug>/` and reference them with
+site-relative Markdown paths, such as
+`![Example output](/articles/<slug>/example.webp)`. Published articles require
+a cover image, descriptive cover-image alt text, valid dates, and a registered
+tool route for each `relatedTools` entry. Update the publication date and set
+`draft: false` only when the article and images are ready.
+
+Drafts are excluded from the article index and sitemap and render as 404 pages.
+Run `npm run build` to validate article metadata, links, cover images, and the
+static export before publishing.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
