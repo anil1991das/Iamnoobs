@@ -9,8 +9,10 @@ import {
   type KeyboardEvent,
 } from "react";
 import { categories, tools } from "@/lib/tools/registry";
+import { useToolPreview } from "@/components/tool-preview-context";
 
 export default function ToolsMenu() {
+  const { setActiveToolSlug } = useToolPreview();
   const [activeCategory, setActiveCategory] = useState(categories[0]?.slug ?? "");
   const [query, setQuery] = useState("");
   const [isOpen, setIsOpen] = useState(false);
@@ -46,6 +48,7 @@ export default function ToolsMenu() {
 
   function closeMenu() {
     setIsOpen(false);
+    setActiveToolSlug(null);
   }
 
   function handleKeyDown(event: KeyboardEvent<HTMLDivElement>) {
@@ -192,6 +195,10 @@ export default function ToolsMenu() {
                             href={`/${tool.slug}`}
                             prefetch={false}
                             onClick={closeMenu}
+                            onMouseEnter={() => setActiveToolSlug(tool.slug)}
+                            onMouseLeave={() => setActiveToolSlug(null)}
+                            onFocus={() => setActiveToolSlug(tool.slug)}
+                            onBlur={() => setActiveToolSlug(null)}
                             className="flex min-h-10 items-center gap-2 rounded-lg px-3 py-2 text-sm hover:bg-muted focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary"
                           >
                             <span aria-hidden="true">{tool.icon}</span>
