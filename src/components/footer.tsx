@@ -8,10 +8,12 @@ export default function Footer() {
           <p className="text-sm text-muted-foreground">
             &copy; {new Date().getFullYear()} iamnoobs.com — Free online tools for everyone.
           </p>
-          <div className="flex gap-4 text-sm text-muted-foreground">
+          <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
             <Link href="/privacy" className="hover:text-foreground transition-colors">Privacy</Link>
             <Link href="/terms" className="hover:text-foreground transition-colors">Terms</Link>
-          </div>
+            <Link href="/disclaimer" className="hover:text-foreground transition-colors">Disclaimer</Link>
+            <Link href="/contact" className="hover:text-foreground transition-colors">Contact &amp; Feedback</Link>
+          </nav>
         </div>
       </div>
     </footer>
