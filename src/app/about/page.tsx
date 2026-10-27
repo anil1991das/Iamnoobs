@@ -4,7 +4,7 @@ import Link from "next/link";
 export const metadata: Metadata = {
   title: "About iamnoobs",
   description:
-    "Learn about iamnoobs, a collection of free online tools and practical guides for developers and everyday tasks.",
+    "Learn about iamnoobs: practical tools and straightforward guides for development, documents, productivity, and everyday digital tasks.",
   alternates: { canonical: "https://iamnoobs.com/about" },
 };
 
@@ -14,16 +14,19 @@ export default function AboutPage() {
       <header className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">About iamnoobs</h1>
         <p className="text-lg text-muted-foreground">
-          Simple, useful tools and clear guides for getting things done.
+          iamnoobs brings practical tools and straightforward guides together
+          in one place. Whether you’re learning something new or looking for a
+          simpler way to get a task done, explore the tools and find a guide to
+          help you along.
         </p>
       </header>
 
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">What you can find here</h2>
         <p>
-          iamnoobs brings together free online tools for common developer and
-          everyday tasks, along with practical articles that explain how to use
-          them and understand the ideas behind them.
+          Find tools for development, documents, productivity, and everyday
+          digital tasks, along with practical articles that explain what they
+          do and how to use them.
         </p>
         <p>
           Browse the <Link className="text-primary underline" href="/#tools">tools</Link>{" "}
