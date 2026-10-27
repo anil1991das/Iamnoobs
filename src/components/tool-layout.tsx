@@ -38,7 +38,7 @@ export default function ToolLayout({
         "@type": "ListItem",
         position: 3,
         name: title,
-        item: `https://iamnoobs.com/tools/${slug}`,
+        item: `https://iamnoobs.com/${slug}`,
       },
     ],
   };
@@ -48,7 +48,7 @@ export default function ToolLayout({
     "@type": "WebApplication",
     name: title,
     description,
-    url: `https://iamnoobs.com/tools/${slug}`,
+    url: `https://iamnoobs.com/${slug}`,
     applicationCategory: "DeveloperApplication",
     operatingSystem: "All",
     offers: {

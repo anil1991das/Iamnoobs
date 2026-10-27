@@ -9,7 +9,7 @@ export default function NotFound() {
         The tool or page you&apos;re looking for doesn&apos;t exist.
       </p>
       <Link
-        href="/"
+        href="/#tools"
         className="mt-8 rounded-xl bg-primary px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover"
       >
         Browse All Tools

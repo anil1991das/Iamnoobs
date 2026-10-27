@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     template: "%s | iamnoobs",
   },
   description:
-    "50+ free online tools: JSON formatter, password generator, image compressor, PDF tools, converters and more. Fast, private, no signup required.",
+    "Free online tools for developers and everyday tasks, including formatters, converters, calculators, and generators. No signup required.",
   keywords: [
     "online tools",
     "developer tools",
@@ -26,12 +26,12 @@ export const metadata: Metadata = {
     siteName: "iamnoobs",
     title: "iamnoobs - Free Online Tools for Developers & Everyone",
     description:
-      "50+ free online tools that work in your browser. Fast, private, no signup.",
+      "Free online tools for developers and everyday tasks. No signup required.",
   },
   twitter: {
     card: "summary_large_image",
     title: "iamnoobs - Free Online Tools",
-    description: "50+ fast, free, private browser tools. No signup required.",
+    description: "Fast, free online tools for developers and everyday tasks.",
   },
   alternates: {
     canonical: "https://iamnoobs.com",
@@ -54,11 +54,10 @@ const jsonLd = {
   "@type": "WebSite",
   name: "iamnoobs",
   url: "https://iamnoobs.com",
-  description:
-    "50+ free online tools for developers and everyone. Fast, private, works in your browser.",
+  description: "Free online tools for developers and everyday tasks.",
   potentialAction: {
     "@type": "SearchAction",
-    target: "https://iamnoobs.com/#tools?q={search_term_string}",
+    target: "https://iamnoobs.com/?q={search_term_string}",
     "query-input": "required name=search_term_string",
   },
 };

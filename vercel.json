@@ -1,4 +1,16 @@
 {
+  "redirects": [
+    {
+      "source": "/tools",
+      "destination": "/#tools",
+      "permanent": true
+    },
+    {
+      "source": "/tools/:slug",
+      "destination": "/:slug",
+      "permanent": true
+    }
+  ],
   "headers": [
     {
       "source": "/(.*)",
@@ -7,12 +19,6 @@
         { "key": "X-Frame-Options", "value": "DENY" },
         { "key": "Referrer-Policy", "value": "strict-origin-when-cross-origin" },
         { "key": "Permissions-Policy", "value": "camera=(), microphone=(), geolocation=()" }
-      ]
-    },
-    {
-      "source": "/tools/(.*)",
-      "headers": [
-        { "key": "Cache-Control", "value": "public, max-age=3600, stale-while-revalidate=86400" }
       ]
     },
     {

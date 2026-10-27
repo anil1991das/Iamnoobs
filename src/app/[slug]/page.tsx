@@ -1,5 +1,6 @@
 import { notFound } from "next/navigation";
-import { Metadata } from "next";
+import type { Metadata } from "next";
+import { createElement } from "react";
 import { tools, getToolBySlug } from "@/lib/tools/registry";
 import { getToolComponent, hasToolComponent } from "@/lib/tools/tool-components";
 import { seoData } from "@/lib/tools/seo-data";
@@ -11,7 +12,7 @@ interface PageProps {
   params: Promise<{ slug: string }>;
 }
 
-export async function generateStaticParams() {
+export function generateStaticParams() {
   return tools.map((tool) => ({ slug: tool.slug }));
 }
 
@@ -21,14 +22,14 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   if (!tool) return {};
 
   return {
-    title: tool.metaTitle,
+    title: { absolute: tool.metaTitle },
     description: tool.metaDescription,
     keywords: tool.keywords,
     openGraph: {
       title: tool.metaTitle,
       description: tool.metaDescription,
       type: "website",
-      url: `https://iamnoobs.com/tools/${tool.slug}`,
+      url: `https://iamnoobs.com/${tool.slug}`,
       siteName: "iamnoobs",
     },
     twitter: {
@@ -37,7 +38,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       description: tool.metaDescription,
     },
     alternates: {
-      canonical: `https://iamnoobs.com/tools/${tool.slug}`,
+      canonical: `https://iamnoobs.com/${tool.slug}`,
     },
   };
 }
@@ -61,7 +62,7 @@ export default async function ToolPage({ params }: PageProps) {
       }
     >
       {hasToolComponent(slug) && ToolClient ? (
-        <ToolClient />
+        createElement(ToolClient)
       ) : (
         <ComingSoon toolName={tool.name} />
       )}
