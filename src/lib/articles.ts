@@ -124,9 +124,6 @@ async function validateCoverImage(
   filename: string,
 ): Promise<void> {
   if (!coverImage) {
-    if (!draft) {
-      throw new Error(`Published article ${filename} must define "coverImage".`);
-    }
     if (coverImageAlt) {
       throw new Error(`Article ${filename} defines "coverImageAlt" without a "coverImage".`);
     }
@@ -173,7 +170,7 @@ async function readArticle(filename: string): Promise<Article> {
     throw new Error(`Article ${filename} must have a matching kebab-case slug.`);
   }
 
-  const draft = data.draft;
+  const draft = data.draft ?? false;
   if (typeof draft !== "boolean") {
     throw new Error(`Article ${filename} must set "draft" to true or false.`);
   }

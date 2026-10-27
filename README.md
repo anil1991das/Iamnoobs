@@ -33,7 +33,9 @@ You can check out [the Next.js GitHub repository](https://github.com/vercel/next
 
 Copy `src/content/article-template.md` to `src/content/articles/<slug>.md`, then
 replace its example frontmatter and outline with your article. The filename and
-frontmatter slug must match and use lowercase kebab-case.
+frontmatter slug must match and use lowercase kebab-case. Save the Markdown
+file directly in `src/content/articles/`; article files are published by
+default. Add `draft: true` to the frontmatter to keep an article hidden.
 
 Put each article's images in `public/articles/<slug>/` and reference them with
 site-relative Markdown paths, such as
@@ -43,7 +45,9 @@ tool route for each `relatedTools` entry. Update the publication date and set
 `draft: false` only when the article and images are ready.
 
 Drafts are excluded from the article index and sitemap and render as 404 pages.
-Run `npm run build` to validate article metadata, links, cover images, and the
+During development, save the file and refresh the page. The deployed site uses
+a static export, so rebuild and redeploy after adding or editing articles. Run
+`npm run build` to validate article metadata, links, cover images, and the
 static export before publishing.
 
 ## Deploy on Vercel

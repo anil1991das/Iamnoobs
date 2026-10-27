@@ -14,7 +14,7 @@ relatedTools:
   - title: "Tool name"
     url: "/tool-slug"
 relatedArticles: []
-draft: true
+draft: false
 ---
 
 Answer the reader's main question in the opening paragraph. Briefly explain what they will learn, and link to a relevant iamnoobs tool when it helps them complete the task.

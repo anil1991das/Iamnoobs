@@ -78,10 +78,24 @@ export default async function ArticlesPage() {
         </ul>
       ) : (
         <section className="mx-auto max-w-xl rounded-2xl border border-card-border bg-card p-8 text-center">
-          <h2 className="text-2xl font-semibold">New guides are on the way</h2>
+          <h2 className="text-2xl font-semibold">No published articles yet</h2>
           <p className="mt-3 text-muted-foreground">
-            We’re preparing practical tutorials and examples. In the meantime,
-            explore the free tools on iamnoobs.
+            Add a Markdown article to{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">
+              src/content/articles/
+            </code>{" "}
+            and it will appear here. Articles are published by default; set{" "}
+            <code className="rounded bg-muted px-1.5 py-0.5 text-sm">
+              draft: true
+            </code>{" "}
+            in its frontmatter to keep it hidden.
+          </p>
+          <p className="mt-3 text-sm text-muted-foreground">
+            The five starter files in that folder are unfinished outlines and
+            are marked as drafts, so they stay hidden. After writing an article,
+            set <code className="rounded bg-muted px-1.5 py-0.5">draft: false</code>{" "}
+            and add its cover image. During development, save the file and
+            refresh. For the deployed static site, rebuild and redeploy.
           </p>
           <Link
             href="/#tools"
