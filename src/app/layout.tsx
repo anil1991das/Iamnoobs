@@ -6,11 +6,11 @@ import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "iamnoobs - Free Online Tools for Developers & Everyone",
+    default: "iamnoobs — Tools and Guides for Everyday Tasks",
     template: "%s | iamnoobs",
   },
   description:
-    "Free online tools for developers and everyday tasks, including formatters, converters, calculators, and generators. No signup required.",
+    "Explore practical tools and clear guides for development, documents, productivity, and everyday digital tasks. Find what you need and learn how to use it.",
   keywords: [
     "online tools",
     "developer tools",
@@ -25,14 +25,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "iamnoobs",
-    title: "iamnoobs - Free Online Tools for Developers & Everyone",
+    title: "iamnoobs — Tools and Guides for Everyday Tasks",
     description:
-      "Free online tools for developers and everyday tasks. No signup required.",
+      "Practical tools and clear guides for development, documents, productivity, and everyday digital tasks.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "iamnoobs - Free Online Tools",
-    description: "Fast, free online tools for developers and everyday tasks.",
+    title: "iamnoobs — Tools and Guides for Everyday Tasks",
+    description:
+      "Practical tools and clear guides for development, documents, productivity, and everyday digital tasks.",
   },
   alternates: {
     canonical: "https://iamnoobs.com",
@@ -55,7 +56,8 @@ const jsonLd = {
   "@type": "WebSite",
   name: "iamnoobs",
   url: "https://iamnoobs.com",
-  description: "Free online tools for developers and everyday tasks.",
+  description:
+    "Practical tools and clear guides for development, documents, productivity, and everyday digital tasks.",
   potentialAction: {
     "@type": "SearchAction",
     target: "https://iamnoobs.com/?q={search_term_string}",

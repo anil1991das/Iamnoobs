@@ -6,7 +6,7 @@ export default function Footer() {
       <div className="mx-auto max-w-6xl px-4 py-8">
         <div className="flex flex-col items-center justify-between gap-4 sm:flex-row">
           <p className="text-sm text-muted-foreground">
-            &copy; {new Date().getFullYear()} iamnoobs.com — Free online tools for everyone.
+            &copy; {new Date().getFullYear()} iamnoobs.com — Practical tools and clear guides for everyday digital tasks.
           </p>
           <nav aria-label="Footer" className="flex flex-wrap justify-center gap-x-4 gap-y-2 text-sm text-muted-foreground">
             <Link href="/articles" className="hover:text-foreground transition-colors">Articles</Link>
