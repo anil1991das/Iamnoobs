@@ -6,19 +6,64 @@ interface Note { id: string; title: string; content: string; updatedAt: number }
 
 const STORAGE_KEY = "iamnoobs_notes";
 
+function isNote(value: unknown): value is Note {
+  if (!value || typeof value !== "object") return false;
+  const note = value as Record<string, unknown>;
+  return (
+    typeof note.id === "string" &&
+    typeof note.title === "string" &&
+    typeof note.content === "string" &&
+    typeof note.updatedAt === "number" &&
+    Number.isFinite(note.updatedAt)
+  );
+}
+
 export default function NotesAppClient() {
   const [notes, setNotes] = useState<Note[]>([]);
   const [activeId, setActiveId] = useState<string | null>(null);
+  const [storageError, setStorageError] = useState("");
+  const [storageAvailable, setStorageAvailable] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) { const n = JSON.parse(saved); setNotes(n); if (n.length) setActiveId(n[0].id); }
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      try {
+        const saved = window.localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed: unknown = JSON.parse(saved);
+          if (!Array.isArray(parsed) || !parsed.every(isNote)) {
+            throw new Error("Saved note data has an unexpected format.");
+          }
+          const loadedNotes = parsed;
+          setNotes(loadedNotes);
+          if (loadedNotes.length) setActiveId(loadedNotes[0].id);
+        }
+        setStorageAvailable(true);
+      } catch {
+        setStorageError(
+          "Saved notes could not be read. New notes are available for this visit only.",
+        );
+      }
+    });
+    return () => {
+      active = false;
+    };
   }, []);
 
   const save = useCallback((items: Note[]) => {
     setNotes(items);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  }, []);
+    if (!storageAvailable) return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+      setStorageError("");
+    } catch {
+      setStorageAvailable(false);
+      setStorageError(
+        "Note changes could not be saved in this browser. They will remain available for this visit.",
+      );
+    }
+  }, [storageAvailable]);
 
   const active = notes.find((n) => n.id === activeId);
 
@@ -41,6 +86,7 @@ export default function NotesAppClient() {
 
   return (
     <div className="grid grid-cols-[250px_1fr] gap-4 min-h-[400px]">
+      {storageError && <p role="status" className="col-span-full rounded-lg bg-danger/10 p-3 text-sm text-danger">{storageError}</p>}
       <div className="rounded-xl border border-border bg-card p-3 space-y-2 overflow-y-auto max-h-[500px]">
         <button onClick={addNote} className="w-full rounded-lg bg-primary px-3 py-2 text-sm font-semibold text-white">+ New Note</button>
         {notes.map((n) => (

@@ -98,7 +98,7 @@ export default async function ArticlesPage() {
             refresh. For the deployed static site, rebuild and redeploy.
           </p>
           <Link
-            href="/#tools"
+            href="/tools"
             className="mt-5 inline-flex rounded-lg bg-primary px-4 py-2 font-medium text-white hover:bg-primary-hover"
           >
             Explore the tools

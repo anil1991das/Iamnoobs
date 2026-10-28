@@ -40,7 +40,7 @@ export async function textToPdf(text: string, title: string = ""): Promise<Uint8
   const lines = text.split("\n");
 
   let page = doc.addPage();
-  let { width, height } = page.getSize();
+  const { width, height } = page.getSize();
   let y = height - margin;
 
   if (title) {

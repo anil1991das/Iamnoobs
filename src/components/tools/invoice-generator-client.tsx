@@ -1,16 +1,35 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { type InvoiceItem, type InvoiceData, calculateInvoice, generateInvoiceHtml } from "@/lib/tools/invoice-generator";
+import { formatLocalDate } from "@/lib/utils/date";
 
 export default function InvoiceGeneratorClient() {
   const [data, setData] = useState<InvoiceData>({
-    invoiceNumber: "INV-001", date: new Date().toISOString().split("T")[0],
-    dueDate: new Date(Date.now() + 30 * 86400000).toISOString().split("T")[0],
+    invoiceNumber: "INV-001", date: "",
+    dueDate: "",
     from: { name: "", address: "", gstin: "" }, to: { name: "", address: "", gstin: "" },
     items: [{ description: "", quantity: 1, rate: 0, amount: 0 }],
     gstRate: 18, notes: "",
   });
+
+  useEffect(() => {
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      const today = new Date();
+      const dueDate = new Date(today);
+      dueDate.setDate(dueDate.getDate() + 30);
+      setData((current) => ({
+        ...current,
+        date: current.date || formatLocalDate(today),
+        dueDate: current.dueDate || formatLocalDate(dueDate),
+      }));
+    });
+    return () => {
+      active = false;
+    };
+  }, []);
 
   const updateItem = (i: number, field: keyof InvoiceItem, value: string | number) => {
     const items = [...data.items];

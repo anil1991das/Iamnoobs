@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { httpStatusCodes, getStatusDescription } from "@/lib/tools/http-tools";
+import { httpStatusCodes } from "@/lib/tools/http-tools";
 
 export default function HttpStatusCheckerClient() {
   const [search, setSearch] = useState("");

@@ -24,8 +24,6 @@ export default function MeetingTimeFinderClient() {
     setSelected((s) => s.includes(tz) ? s.filter((t) => t !== tz) : [...s, tz]);
   };
 
-  const hours = Array.from({ length: 24 }, (_, i) => i);
-
   const getTime = (hour: number, min: number, fromTz: string, toTz: string) => {
     const d = new Date();
     d.setHours(hour, min, 0, 0);

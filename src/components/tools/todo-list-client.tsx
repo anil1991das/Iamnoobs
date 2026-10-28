@@ -6,20 +6,63 @@ interface TodoItem { id: string; text: string; done: boolean; createdAt: number 
 
 const STORAGE_KEY = "iamnoobs_todo_list";
 
+function isTodoItem(value: unknown): value is TodoItem {
+  if (!value || typeof value !== "object") return false;
+  const item = value as Record<string, unknown>;
+  return (
+    typeof item.id === "string" &&
+    typeof item.text === "string" &&
+    typeof item.done === "boolean" &&
+    typeof item.createdAt === "number" &&
+    Number.isFinite(item.createdAt)
+  );
+}
+
 export default function TodoListClient() {
   const [todos, setTodos] = useState<TodoItem[]>([]);
   const [input, setInput] = useState("");
   const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+  const [storageError, setStorageError] = useState("");
+  const [storageAvailable, setStorageAvailable] = useState(false);
 
   useEffect(() => {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    if (saved) setTodos(JSON.parse(saved));
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      try {
+        const saved = window.localStorage.getItem(STORAGE_KEY);
+        if (saved) {
+          const parsed: unknown = JSON.parse(saved);
+          if (!Array.isArray(parsed) || !parsed.every(isTodoItem)) {
+            throw new Error("Saved task data has an unexpected format.");
+          }
+          setTodos(parsed);
+        }
+        setStorageAvailable(true);
+      } catch {
+        setStorageError(
+          "Saved task data could not be read. New tasks are available for this visit only.",
+        );
+      }
+    });
+    return () => {
+      active = false;
+    };
   }, []);
 
   const save = useCallback((items: TodoItem[]) => {
     setTodos(items);
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
-  }, []);
+    if (!storageAvailable) return;
+    try {
+      window.localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
+      setStorageError("");
+    } catch {
+      setStorageAvailable(false);
+      setStorageError(
+        "Task changes could not be saved in this browser. They will remain available for this visit.",
+      );
+    }
+  }, [storageAvailable]);
 
   const add = () => {
     if (!input.trim()) return;
@@ -36,6 +79,7 @@ export default function TodoListClient() {
 
   return (
     <div className="space-y-4">
+      {storageError && <p role="status" className="rounded-lg bg-danger/10 p-3 text-sm text-danger">{storageError}</p>}
       <div className="rounded-xl border border-border bg-card p-4">
         <form onSubmit={(e) => { e.preventDefault(); add(); }} className="flex gap-2">
           <input type="text" value={input} onChange={(e) => setInput(e.target.value)} placeholder="Add a task..." className="flex-1 rounded-xl border border-border bg-background px-4 py-2.5 text-sm" />

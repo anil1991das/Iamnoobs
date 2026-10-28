@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect, useRef } from "react";
+import { formatLocalDateTime } from "@/lib/utils/date";
 
 export default function CountdownTimerClient() {
   const [target, setTarget] = useState("");
@@ -26,11 +27,22 @@ export default function CountdownTimerClient() {
     return () => { if (intervalRef.current) clearInterval(intervalRef.current); };
   }, [target]);
 
-  const presets = [
-    { label: "New Year", date: `${new Date().getFullYear() + 1}-01-01T00:00` },
-    { label: "1 Hour", date: new Date(Date.now() + 3600000).toISOString().slice(0, 16) },
-    { label: "Tomorrow", date: (() => { const d = new Date(); d.setDate(d.getDate() + 1); d.setHours(0, 0); return d.toISOString().slice(0, 16); })() },
-  ];
+  const presets = ["New Year", "1 Hour", "Tomorrow"] as const;
+
+  function setPreset(preset: (typeof presets)[number]) {
+    const date = new Date();
+    if (preset === "New Year") {
+      date.setFullYear(date.getFullYear() + 1, 0, 1);
+      date.setHours(0, 0, 0, 0);
+    } else if (preset === "1 Hour") {
+      date.setTime(date.getTime() + 60 * 60 * 1000);
+    } else {
+      date.setDate(date.getDate() + 1);
+      date.setHours(0, 0, 0, 0);
+    }
+    setTarget(formatLocalDateTime(date));
+    setLabel(preset);
+  }
 
   return (
     <div className="space-y-6">
@@ -39,7 +51,7 @@ export default function CountdownTimerClient() {
           <input type="text" value={label} onChange={(e) => setLabel(e.target.value)} placeholder="My Event" className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" /></div>
         <div><label className="text-sm font-medium text-foreground">Target Date & Time</label>
           <input type="datetime-local" value={target} onChange={(e) => setTarget(e.target.value)} className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" /></div>
-        <div className="flex gap-2">{presets.map((p) => <button key={p.label} onClick={() => { setTarget(p.date); setLabel(p.label); }} className="rounded-lg bg-accent px-3 py-1.5 text-xs font-medium text-foreground hover:bg-accent/80">{p.label}</button>)}</div>
+        <div className="flex gap-2">{presets.map((preset) => <button key={preset} type="button" onClick={() => setPreset(preset)} className="rounded-lg bg-accent px-3 py-1.5 text-xs font-medium text-foreground hover:bg-accent/80">{preset}</button>)}</div>
       </div>
       {target && (
         <div className="text-center space-y-4">

@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- Source and result previews use user-provided image data. */
 import { useState, useRef, useCallback, useEffect } from "react";
 import { cropImage } from "@/lib/tools/image-tools-extended";
 
