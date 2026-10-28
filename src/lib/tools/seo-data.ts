@@ -8,11 +8,11 @@ export const seoData: Record<string, ToolSeoData> = {
     content: [
       "JSON (JavaScript Object Notation) is the most widely used data interchange format on the web. Whether you are working with REST APIs, configuration files, or data storage, JSON is everywhere. Our free online JSON Formatter and Beautifier lets you instantly format, validate, and beautify your raw JSON data with proper indentation, making it easy to read and debug.",
       "When developers work with APIs and databases, the JSON responses are often minified — compressed into a single line with no whitespace. While this is efficient for data transfer, it makes the data nearly impossible to read or debug manually. A JSON formatter solves this by adding line breaks and indentation, transforming dense JSON into a clean, hierarchical structure.",
-      "Our JSON Formatter is built entirely in your browser. Your data never leaves your device — no server calls, no uploads, complete privacy. Simply paste your JSON into the input field, click 'Format JSON', and get beautifully indented output instantly. You can also minify formatted JSON to save space when needed.",
+      "JSON formatting and minification happen in your browser. Paste JSON into the input, choose Format or Minify, and review the result. The formatter changes whitespace and indentation, not the underlying JSON values.",
       "The tool validates your JSON as it formats. If your input contains syntax errors like missing commas, unmatched brackets, or invalid escape sequences, you will see a clear error message pointing to the issue. This makes it invaluable as a JSON debugger as well.",
       "Use cases for JSON formatting are extensive: debugging API responses, cleaning up configuration files, preparing data for documentation, validating webhook payloads, reviewing database exports, and formatting log output. Developers, QA engineers, technical writers, and data analysts all benefit from a reliable JSON formatting tool.",
       "Our tool supports all valid JSON types: objects, arrays, strings, numbers, booleans, and null values. It handles deeply nested structures, large files, and Unicode characters without any issues. The output preserves all data exactly as it was — only the formatting changes.",
-      "Beyond formatting, you can copy the result to your clipboard with one click or download it as a .json file. The tool is mobile-friendly, works offline once loaded, and requires no installation or signup. It is built with performance in mind and can handle large JSON documents without lag.",
+      "You can copy the formatted result or download it as a .json file. Processing larger documents depends on the available memory and performance of your device and browser.",
     ],
     faqs: [
       {
@@ -21,7 +21,7 @@ export const seoData: Record<string, ToolSeoData> = {
       },
       {
         question: "Is my JSON data safe when using this tool?",
-        answer: "Yes, completely. Our JSON Formatter runs entirely in your browser using client-side JavaScript. Your data is never sent to any server. You can even use this tool offline once the page has loaded.",
+        answer: "The formatting operation runs in your browser. Avoid entering sensitive data unless you have reviewed the site's privacy information and are comfortable using it in your browser.",
       },
       {
         question: "What happens if my JSON has errors?",
@@ -33,7 +33,7 @@ export const seoData: Record<string, ToolSeoData> = {
       },
       {
         question: "What is the maximum JSON size this tool can handle?",
-        answer: "Since the tool runs in your browser, it can handle JSON data up to several megabytes depending on your device's memory. For typical use cases like API responses and config files, there are no practical limits.",
+        answer: "There is no fixed size limit configured by the formatter, but practical limits depend on your browser and device memory. Very large documents may process slowly or exceed available memory.",
       },
     ],
   },
@@ -80,7 +80,7 @@ export const seoData: Record<string, ToolSeoData> = {
       "Beyond basic word counting, the tool provides character count (with and without spaces), which is crucial for social media posts, meta descriptions, and SMS messages. Twitter, Instagram, and LinkedIn all have character limits that you need to track. Our tool shows both counts simultaneously.",
       "The sentence and paragraph counters help with structural analysis of your writing. Good writing typically has varied sentence lengths and well-organized paragraphs. Monitoring these metrics can help you improve readability and flow. The reading time estimate, based on an average reading speed of 200 words per minute, is valuable for blog posts and articles.",
       "Writers, students, journalists, content marketers, SEO specialists, translators, and social media managers all rely on word counting tools daily. Our tool handles all languages and character sets, including Unicode, emoji, and special characters. It works with any text content you can paste into a browser.",
-      "The tool runs entirely in your browser — your text is never uploaded to any server. This makes it safe for counting words in confidential documents, unpublished manuscripts, legal texts, and other sensitive content. It works offline once loaded and requires no account or signup.",
+      "The word count and text statistics are calculated in your browser. The tool does not need an account. As with any website, review the site's privacy information before using it with sensitive text.",
     ],
     faqs: [
       {
@@ -101,7 +101,7 @@ export const seoData: Record<string, ToolSeoData> = {
       },
       {
         question: "Is my text stored or shared?",
-        answer: "No. The word counter runs entirely in your browser. Your text is never sent to any server, never stored, and never shared. It is completely private and safe for confidential content.",
+        answer: "The word-count calculation happens in your browser. Avoid entering sensitive content unless you have reviewed the site's privacy information and are comfortable using it here.",
       },
     ],
   },
@@ -135,7 +135,7 @@ export const seoData: Record<string, ToolSeoData> = {
       },
       {
         question: "Is my data safe when using this tool?",
-        answer: "Yes. The encoding happens entirely in your browser using JavaScript. Your text is never sent to any server or stored anywhere. You can verify this by using the tool with your network disconnected.",
+        answer: "The encoding operation runs in your browser using JavaScript. Avoid entering sensitive content unless you have reviewed the site's privacy information and are comfortable using it here.",
       },
     ],
   },
@@ -147,7 +147,7 @@ export const seoData: Record<string, ToolSeoData> = {
       "Why use UUIDs instead of sequential IDs? In distributed systems, microservices, or applications that need to generate IDs without coordinating with a central authority, UUIDs solve the collision problem. Each UUID generated independently has an astronomically low probability of duplicating any other UUID. The total number of possible v4 UUIDs is approximately 5.3 × 10^36.",
       "Common use cases for UUIDs include database primary keys (especially in distributed databases like Cassandra), API resource identifiers, session tokens, correlation IDs for distributed tracing, file naming to avoid collisions, and device or installation identifiers. Major systems like Windows, macOS, and all modern web frameworks use UUIDs extensively.",
       "Our generator uses the Web Crypto API's crypto.randomUUID() function when available, falling back to crypto.getRandomValues() for maximum browser compatibility. Both methods provide cryptographically secure random numbers, ensuring each UUID is truly unpredictable and suitable for security-sensitive applications.",
-      "You can generate between 1 and 100 UUIDs at once, making it easy to prepare batches of identifiers for testing, seeding databases, or setting up configuration files. Each UUID can be copied individually, or you can copy all generated UUIDs at once. The tool works offline and requires no server communication.",
+      "You can generate between 1 and 100 UUIDs at once, making it easy to prepare batches of identifiers for testing, seeding databases, or setting up configuration files. Each UUID can be copied individually, or you can copy all generated UUIDs at once.",
       "Developers, database administrators, DevOps engineers, QA testers, and system architects regularly need UUID generators. Whether you are setting up a new database schema, writing unit tests, configuring microservices, or creating unique identifiers for any purpose, this tool provides instant, reliable UUID generation.",
     ],
     faqs: [
@@ -230,7 +230,7 @@ export const seoData: Record<string, ToolSeoData> = {
     content: [
       "Minifying HTML removes unnecessary whitespace, comments, and redundant characters to reduce file size. Our free HTML Minifier compresses your HTML for faster page loads and reduced bandwidth usage.",
       "The tool strips comments, collapses whitespace between elements, and removes unnecessary characters while preserving the structure and rendering of your HTML. This can reduce HTML file sizes by 10-30% depending on the original formatting.",
-      "Use this tool to prepare HTML for production deployment, optimize email templates, or reduce the size of HTML embedded in other formats. Everything runs in your browser for complete privacy.",
+      "Use this tool to prepare HTML for production deployment, optimize email templates, or reduce the size of HTML embedded in other formats. Minification is performed in your browser.",
     ],
     faqs: [
       { question: "Will minification break my HTML?", answer: "No. The minifier only removes unnecessary whitespace and comments. All elements, attributes, and content are preserved, and the minified HTML renders identically." },
@@ -399,11 +399,11 @@ export const seoData: Record<string, ToolSeoData> = {
     content: [
       "JSON Web Tokens (JWTs) are commonly used for API authentication and authorization. Our free JWT Decoder splits a JWT into its three parts — header, payload, and signature — and displays the decoded JSON content.",
       "JWTs consist of three Base64url-encoded parts separated by dots: the header (algorithm and type), the payload (claims like user ID, expiration, permissions), and the signature (verifies the token has not been tampered with).",
-      "The decoder also checks token timing — showing whether the token has expired based on the 'exp' claim and when it was issued based on the 'iat' claim. Everything runs in your browser for complete privacy.",
+      "The decoder also checks token timing — showing whether the token has expired based on the 'exp' claim and when it was issued based on the 'iat' claim. Decoding happens in your browser. Remember that a decoded JWT payload is not verified just because it can be decoded.",
     ],
     faqs: [
       { question: "Can this tool verify JWT signatures?", answer: "This tool decodes and displays JWT contents but does not verify the cryptographic signature. Signature verification requires the correct secret key or public key, which should be done server-side." },
-      { question: "Is it safe to paste my JWT here?", answer: "Yes. The decoding runs entirely in your browser. However, JWTs often contain sensitive claims, so avoid sharing tokens publicly and always use HTTPS in production." },
+      { question: "Is it safe to paste my JWT here?", answer: "Decoding runs in your browser, but that does not verify a token's signature or establish that its contents are trustworthy. JWTs may contain sensitive claims, so avoid using real secrets in public or untrusted environments." },
       { question: "What do the exp and iat claims mean?", answer: "'exp' is the expiration time (when the token becomes invalid) and 'iat' is the issued-at time (when the token was created). Both are Unix timestamps that the tool converts to human-readable dates." },
     ],
   },
@@ -451,7 +451,7 @@ export const seoData: Record<string, ToolSeoData> = {
     content: [
       "Large image files slow down websites, increase bandwidth costs, and frustrate users. Our free Image Compressor reduces image file sizes while maintaining acceptable visual quality — all processing happens right in your browser.",
       "The tool uses the HTML5 Canvas API to re-encode images at your chosen quality level (1-100%). Lower quality values produce smaller files with more compression artifacts. For web use, 60-80% quality typically provides an excellent balance.",
-      "Supports JPEG, PNG, and WebP images. Upload your image, adjust the quality slider, and download the compressed version instantly. No file uploads to any server — your images stay completely private.",
+      "Supports JPEG, PNG, and WebP images. Select an image, adjust the quality slider, and download the compressed version. The compression step runs in your browser.",
     ],
     faqs: [
       { question: "How much can images be compressed?", answer: "Compression results vary by image content. Photos typically compress well (50-80% reduction at 70% quality), while images with text or sharp edges may show artifacts at lower quality settings." },
@@ -477,7 +477,7 @@ export const seoData: Record<string, ToolSeoData> = {
     content: [
       "PNG images can be significantly larger than necessary for photographs and non-transparent images. Our free PNG to JPG converter transforms your PNG files to JPEG format with adjustable quality, reducing file sizes dramatically.",
       "JPEG compression is ideal for photographs and complex images where small quality losses are imperceptible. Converting a PNG photo to JPG can reduce file size by 60-90% while maintaining excellent visual quality.",
-      "Upload your PNG, choose the quality level, and download the JPG version instantly. The Canvas API handles the conversion entirely in your browser — no uploads, no waiting, no privacy concerns.",
+      "Select a PNG, choose the quality level, and download the JPG version. The Canvas API handles the conversion in your browser.",
     ],
     faqs: [
       { question: "What happens to transparency?", answer: "JPEG does not support transparency. Any transparent areas in your PNG will be replaced with a white background in the converted JPG." },
@@ -541,7 +541,7 @@ export const seoData: Record<string, ToolSeoData> = {
   "pdf-merger": {
     content: [
       "Merging multiple PDF files into a single document is a common task for business, academic, and personal use. Our free PDF Merger combines multiple PDF files in your specified order — all processing happens in your browser.",
-      "The tool uses the pdf-lib library to read, merge, and create PDF files entirely client-side. Your documents are never uploaded to any server, making it safe for confidential, legal, and personal documents.",
+      "The tool uses the pdf-lib library to read, merge, and create PDF files in your browser. Review the site's privacy information before using it with sensitive documents.",
       "Simply upload two or more PDF files, arrange them in the desired order, and merge. The result is a single PDF containing all pages from all files. Download the merged PDF instantly.",
     ],
     faqs: [
@@ -568,12 +568,12 @@ export const seoData: Record<string, ToolSeoData> = {
     content: [
       "Large PDF files are difficult to share via email, slow to upload, and consume storage space. Our free PDF Compressor reduces PDF file sizes by re-serializing the document, removing redundant data and optimizing the internal structure.",
       "The tool uses pdf-lib to parse and re-create the PDF, which can eliminate redundant objects, unused resources, and other bloat that accumulates in PDFs. Compression results vary based on the original file's structure.",
-      "Processing happens entirely in your browser. Your PDF files are never uploaded to any server, making this tool safe for confidential documents, legal files, and personal records.",
+      "PDF compression is performed in your browser. Review the site's privacy information before using it with sensitive files.",
     ],
     faqs: [
       { question: "How much compression can I expect?", answer: "Results vary widely. PDFs with lots of metadata, duplicate objects, or inefficient encoding may see 10-50% reduction. Already-optimized PDFs may see minimal improvement." },
       { question: "Does compression reduce image quality?", answer: "This tool optimizes PDF structure without modifying image data. Images retain their original quality. For more aggressive compression, dedicated tools may re-encode embedded images." },
-      { question: "Is it safe for important documents?", answer: "Yes. The tool processes files entirely in your browser. Always verify the compressed output to ensure all content is preserved correctly." },
+      { question: "Can I use this with important documents?", answer: "The compression step runs in your browser. Review the site's privacy information and verify the resulting PDF before relying on it." },
     ],
   },
 
@@ -581,7 +581,7 @@ export const seoData: Record<string, ToolSeoData> = {
     content: [
       "Extracting text from PDF files allows you to repurpose content for word processors, spreadsheets, and other text-based applications. Our free PDF Text Extractor pulls all text content from your PDF files directly in your browser.",
       "The tool uses pdf-lib to parse the PDF structure and extract embedded text content. It works best with digitally-created PDFs (not scanned images). The extracted text can be copied or downloaded as a text file.",
-      "All processing happens locally in your browser — your PDF is never uploaded to any server. This makes it safe for extracting text from confidential documents, contracts, and personal files.",
+      "Text extraction runs in your browser. Review the site's privacy information before using this tool with sensitive documents, and verify extracted text against the original.",
     ],
     faqs: [
       { question: "Can it extract text from scanned PDFs?", answer: "No. This tool extracts embedded text from digitally-created PDFs. Scanned PDFs contain images, not text, and require OCR (Optical Character Recognition) which is not supported by this tool." },
@@ -1031,7 +1031,7 @@ export const seoData: Record<string, ToolSeoData> = {
     ],
     faqs: [
       { question: "How large of files can I hash?", answer: "The tool can handle files up to several hundred megabytes depending on your device's available memory. Processing time increases with file size." },
-      { question: "Is my file uploaded anywhere?", answer: "No. The file is processed entirely in your browser using the Web Crypto API. Your file never leaves your device." },
+      { question: "Is my file uploaded anywhere?", answer: "Hash calculation runs in your browser using the Web Crypto API. Review the site's privacy information before using it with sensitive files." },
     ],
   },
 
@@ -1135,7 +1135,7 @@ export const seoData: Record<string, ToolSeoData> = {
     ],
     faqs: [
       { question: "Can I choose where page numbers appear?", answer: "Yes, you can position page numbers at the top or bottom of each page, aligned to the left, center, or right." },
-      { question: "Is my PDF uploaded to a server?", answer: "No. All PDF processing happens entirely in your browser using the pdf-lib library. Your documents never leave your device." },
+      { question: "Is my PDF uploaded to a server?", answer: "PDF processing runs in your browser using the pdf-lib library. Review the site's privacy information before using it with sensitive documents." },
     ],
   },
   "pdf-rotate": {
@@ -1165,7 +1165,7 @@ export const seoData: Record<string, ToolSeoData> = {
     ],
     faqs: [
       { question: "Does this add password protection?", answer: "The current tool adds metadata (title, author, subject) to PDFs. Full password protection requires server-side PDF processing which isn't available in a static site." },
-      { question: "Is my PDF processed securely?", answer: "Yes, all processing happens in your browser. Your PDF is never uploaded to any server." },
+      { question: "Is my PDF processed securely?", answer: "The page processes PDF data in your browser. Review the site's privacy information and verify the resulting file before relying on it." },
     ],
   },
   "text-to-pdf": {
@@ -1667,7 +1667,7 @@ export const seoData: Record<string, ToolSeoData> = {
   "text-to-speech": {
     content: ["Convert text to speech using the Web Speech API built into your browser. Choose from available voices, adjust speaking rate and pitch. No server required — everything runs locally."],
     faqs: [
-      { question: "Does this work offline?", answer: "Yes, it uses your browser's built-in speech synthesis. Available voices depend on your operating system and browser." },
+      { question: "Does this work offline?", answer: "Speech synthesis uses browser and operating-system capabilities. Availability and voice selection vary by browser, operating system, and network conditions." },
       { question: "Can I control the speed?", answer: "Yes, adjust the Rate slider (0.1x to 3x) and Pitch slider (0 to 2) to customize the speech output." },
     ],
   },

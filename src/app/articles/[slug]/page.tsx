@@ -87,10 +87,16 @@ export default async function ArticlePage({ params }: ArticlePageProps) {
       : undefined,
     datePublished: `${article.publishedAt}T00:00:00.000Z`,
     dateModified: `${article.updatedAt}T00:00:00.000Z`,
-    author: {
-      "@type": "Person",
-      name: article.author,
-    },
+    author: article.author.toLowerCase() === "iamnoobs"
+      ? {
+          "@type": "Organization",
+          name: article.author,
+          url: "https://iamnoobs.com/about",
+        }
+      : {
+          "@type": "Person",
+          name: article.author,
+        },
     publisher: {
       "@type": "Organization",
       name: "iamnoobs",

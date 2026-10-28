@@ -8,6 +8,7 @@ interface ToolLayoutProps {
   slug: string;
   children: ReactNode;
   seoContent?: ReactNode;
+  relatedArticles?: { slug: string; title: string; description: string }[];
 }
 
 export default function ToolLayout({
@@ -17,6 +18,7 @@ export default function ToolLayout({
   slug,
   children,
   seoContent,
+  relatedArticles = [],
 }: ToolLayoutProps) {
   const breadcrumbSchema = {
     "@context": "https://schema.org",
@@ -89,6 +91,29 @@ export default function ToolLayout({
 
       {seoContent && (
         <aside className="mt-16" aria-label="About this tool">{seoContent}</aside>
+      )}
+
+      {relatedArticles.length > 0 && (
+        <section className="mt-12 border-t border-card-border pt-8" aria-labelledby="related-guides-heading">
+          <h2 id="related-guides-heading" className="text-2xl font-bold">
+            Guides for {title}
+          </h2>
+          <ul className="mt-4 grid gap-3 sm:grid-cols-2">
+            {relatedArticles.map((article) => (
+              <li key={article.slug}>
+                <Link
+                  href={`/articles/${article.slug}`}
+                  className="block h-full rounded-xl border border-card-border bg-card p-4 transition-colors hover:border-primary"
+                >
+                  <h3 className="font-semibold text-primary">{article.title}</h3>
+                  <p className="mt-2 text-sm text-muted-foreground">
+                    {article.description}
+                  </p>
+                </Link>
+              </li>
+            ))}
+          </ul>
+        </section>
       )}
 
       <script
