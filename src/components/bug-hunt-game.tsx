@@ -273,7 +273,7 @@ export default function BugHuntGame({ language }: { language: GameLanguage }) {
               </button>
             )}
             <Link
-              href="/games"
+              href="/games/bug-hunt"
               className="text-sm font-medium text-muted-foreground hover:text-foreground"
             >
               Change language

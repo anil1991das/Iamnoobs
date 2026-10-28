@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- This preview displays browser-generated image data. */
 import { useState } from "react";
 import ActionButtons from "@/components/action-buttons";
 import { blurImage } from "@/lib/tools/image-tools-extended";

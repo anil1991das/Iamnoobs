@@ -2,6 +2,8 @@
 
 import { useState, useRef, useEffect, useCallback } from "react";
 
+const colors = ["#ef4444", "#f97316", "#eab308", "#22c55e", "#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"];
+
 export default function RandomDecisionWheelClient() {
   const [items, setItems] = useState<string[]>(["Option 1", "Option 2", "Option 3"]);
   const [input, setInput] = useState("");
@@ -9,8 +11,6 @@ export default function RandomDecisionWheelClient() {
   const [result, setResult] = useState("");
   const [rotation, setRotation] = useState(0);
   const canvasRef = useRef<HTMLCanvasElement>(null);
-
-  const colors = ["#ef4444", "#f97316", "#eab308", "#22c55e", "#3b82f6", "#8b5cf6", "#ec4899", "#14b8a6"];
 
   const drawWheel = useCallback(() => {
     const canvas = canvasRef.current;

@@ -1,10 +1,9 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useSyncExternalStore } from "react";
+import { useSyncExternalStore } from "react";
 import { hasToolComponent } from "@/lib/tools/tool-components";
 import type { ToolCategory, ToolConfig } from "@/lib/tools/registry";
-import { useToolPreview } from "@/components/tool-preview-context";
 
 interface ToolCatalogProps {
   tools: ToolConfig[];
@@ -56,10 +55,8 @@ function updateSearchQuery(query: string) {
 
 function ToolCard({
   tool,
-  highlighted,
 }: {
   tool: ToolConfig;
-  highlighted: boolean;
 }) {
   const isLive = hasToolComponent(tool.slug);
 
@@ -67,11 +64,7 @@ function ToolCard({
     <Link
       href={`/${tool.slug}`}
       data-tool-slug={tool.slug}
-      className={`group rounded-xl border bg-card p-4 shadow-sm transition-all hover:border-primary hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2 ${
-        highlighted
-          ? "border-primary bg-primary/10 outline outline-2 outline-primary ring-4 ring-primary/15"
-          : "border-card-border"
-      }`}
+      className="group rounded-xl border border-card-border bg-card p-4 shadow-sm transition-all hover:border-primary hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
       prefetch={false}
     >
       <div className="flex items-start gap-3">
@@ -106,7 +99,6 @@ function ToolCard({
 }
 
 export default function ToolCatalog({ tools, categories }: ToolCatalogProps) {
-  const { activeToolSlug } = useToolPreview();
   const query = useSyncExternalStore(
     subscribeToSearchQuery,
     getSearchQuery,
@@ -125,36 +117,6 @@ export default function ToolCatalog({ tools, categories }: ToolCatalogProps) {
   const featuredTools = tools.filter(
     (tool) => featuredSlugs.includes(tool.slug) && hasToolComponent(tool.slug)
   );
-
-  useEffect(() => {
-    if (!activeToolSlug) return;
-
-    const timeout = window.setTimeout(() => {
-      const menu = document.getElementById("tools-menu-panel");
-      const card = Array.from(
-        document.querySelectorAll<HTMLElement>("[data-tool-slug]"),
-      ).find((element) => element.dataset.toolSlug === activeToolSlug);
-      if (!menu || !card) return;
-
-      const menuRect = menu.getBoundingClientRect();
-      const cardRect = card.getBoundingClientRect();
-      const overlapsMenu =
-        cardRect.top < menuRect.bottom && cardRect.bottom > menuRect.top;
-      const outsideViewport = cardRect.top < 0 || cardRect.bottom > window.innerHeight;
-      if (!overlapsMenu && !outsideViewport) return;
-
-      const targetTop = Math.max(menuRect.bottom + 16, 16);
-      const scrollTop = window.scrollY + cardRect.top - targetTop;
-      window.scrollTo({
-        top: Math.max(0, scrollTop),
-        behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches
-          ? "instant"
-          : "smooth",
-      });
-    }, 140);
-
-    return () => window.clearTimeout(timeout);
-  }, [activeToolSlug]);
 
   return (
     <>
@@ -198,7 +160,6 @@ export default function ToolCatalog({ tools, categories }: ToolCatalogProps) {
               <ToolCard
                 key={tool.slug}
                 tool={tool}
-                highlighted={activeToolSlug === tool.slug}
               />
             ))}
           </div>
@@ -234,7 +195,6 @@ export default function ToolCatalog({ tools, categories }: ToolCatalogProps) {
                       <ToolCard
                         key={tool.slug}
                         tool={tool}
-                        highlighted={activeToolSlug === tool.slug}
                       />
                     ))}
                   </div>

@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { gameLanguages } from "@/lib/games/bug-hunt";
 
 export const metadata: Metadata = {
   title: "Code Games",
   description:
-    "Practice Python, C, C++, Java, and C# with beginner-friendly coding puzzles and explanations.",
+    "Play beginner-friendly coding games, learn programming concepts, and explore interactive challenges.",
   alternates: { canonical: "https://iamnoobs.com/games" },
 };
 
@@ -17,59 +16,78 @@ export default function GamesPage() {
           Learn by playing
         </p>
         <h1 className="mt-2 text-4xl font-bold tracking-tight sm:text-5xl">
-          Code Games
+          Games
         </h1>
         <p className="mt-4 text-lg leading-7 text-muted-foreground">
-          Pick a language and work through 10 short challenges. Find bugs,
-          predict output, complete code, and build your programming instincts.
-        </p>
-        <p className="mt-3 text-sm text-muted-foreground">
-          No setup and no code execution—just puzzles, instant feedback, and
-          explanations.
+          Explore playful ways to build coding skills, learn new concepts, and
+          have fun along the way.
         </p>
       </header>
 
-      <section aria-labelledby="language-picker-title">
-        <h2
-          id="language-picker-title"
-          className="mb-4 text-xl font-semibold"
-        >
-          Choose a language
-        </h2>
-        <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-          {gameLanguages.map((language) => (
+      <section aria-label="Available and upcoming games">
+        <div className="grid gap-5 md:grid-cols-2">
+          <article className="flex flex-col rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <div className="flex items-start gap-4">
+              <span
+                aria-hidden="true"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-2xl"
+              >
+                🐛
+              </span>
+              <div>
+                <h2 className="text-xl font-semibold">Bug Hunt</h2>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Find bugs, predict output, complete code, and learn
+                  programming concepts with 10 challenges in your chosen
+                  language.
+                </p>
+              </div>
+            </div>
             <Link
-              key={language.slug}
-              href={`/games/${language.slug}`}
-              className="group rounded-xl border border-card-border bg-card p-5 shadow-sm transition-all hover:border-primary hover:shadow-md focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+              href="/games/bug-hunt"
+              className="mt-6 inline-flex min-h-11 items-center justify-center self-start rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
             >
-              <div className="flex items-start gap-4">
-                <span
-                  aria-hidden="true"
-                  className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-2xl"
-                >
-                  {language.icon}
-                </span>
-                <div>
-                  <h3 className="text-lg font-semibold transition-colors group-hover:text-primary">
-                    {language.name}
-                  </h3>
-                  <p className="mt-1 text-sm leading-6 text-muted-foreground">
-                    {language.description}
-                  </p>
-                  <span className="mt-3 inline-flex text-sm font-medium text-primary">
-                    Play 10 levels
-                    <span aria-hidden="true" className="ml-1">→</span>
+              Play Bug Hunt
+              <span aria-hidden="true" className="ml-2">→</span>
+            </Link>
+          </article>
+
+          <article className="flex flex-col rounded-xl border border-card-border bg-card p-6 shadow-sm">
+            <div className="flex items-start gap-4">
+              <span
+                aria-hidden="true"
+                className="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-primary/10 text-2xl"
+              >
+                🐍
+              </span>
+              <div>
+                <div className="flex flex-wrap items-center gap-2">
+                  <h2 className="text-xl font-semibold">Snake: Learn with Python</h2>
+                  <span className="rounded-full bg-success/10 px-2.5 py-1 text-xs font-medium text-success">
+                    Playable
                   </span>
                 </div>
+                <p className="mt-2 text-sm leading-6 text-muted-foreground">
+                  Play a classic Snake game and learn how its game loop,
+                  movement, keyboard input, collisions, and scoring work in
+                  Python.
+                </p>
               </div>
+            </div>
+            <Link
+              href="/games/snake"
+              className="mt-6 inline-flex min-h-11 items-center justify-center self-start rounded-lg bg-primary px-5 py-3 text-sm font-semibold text-white transition-colors hover:bg-primary-hover focus-visible:ring-2 focus-visible:ring-primary focus-visible:ring-offset-2"
+            >
+              Play Snake
+              <span aria-hidden="true" className="ml-2">→</span>
             </Link>
-          ))}
+          </article>
         </div>
       </section>
 
       <p className="mt-8 text-center text-sm text-muted-foreground">
-        Your completed levels are saved locally in this browser.
+        Bug Hunt supports Python, C, C++, Java, and C#. Choose a language after
+        opening the game.
       </p>
     </main>
   );

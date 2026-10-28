@@ -34,7 +34,7 @@ export default function ToolLayout({
         "@type": "ListItem",
         position: 2,
         name: "Tools",
-        item: "https://iamnoobs.com/#tools",
+        item: "https://iamnoobs.com/tools",
       },
       {
         "@type": "ListItem",
@@ -72,7 +72,7 @@ export default function ToolLayout({
           </li>
           <li aria-hidden="true" className="select-none">/</li>
           <li>
-            <Link href="/#tools" className="hover:text-foreground transition-colors">Tools</Link>
+            <Link href="/tools" className="hover:text-foreground transition-colors">Tools</Link>
           </li>
           <li aria-hidden="true" className="select-none">/</li>
           <li aria-current="page" className="font-medium text-foreground truncate">{title}</li>

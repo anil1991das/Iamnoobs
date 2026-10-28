@@ -1,5 +1,7 @@
 "use client";
-import { useState, useRef } from "react";
+
+/* eslint-disable @next/next/no-img-element -- Uploaded thumbnails are rendered from client-side data URLs. */
+import { useState } from "react";
 
 export default function YoutubeThumbnailPreviewClient() {
   const [image, setImage] = useState<string | null>(null);

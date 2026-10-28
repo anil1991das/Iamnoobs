@@ -21,7 +21,7 @@ export async function generateMetadata({
   const language = getGameLanguage(slug);
   if (!language) return {};
 
-  const title = `${language.name} Code Games`;
+  const title = `Bug Hunt: ${language.name}`;
   const description = `Play 10 beginner-friendly ${language.name} coding challenges with answers, hints, and explanations.`;
 
   return {
@@ -49,7 +49,14 @@ export default async function GameLanguagePage({
     <main className="mx-auto w-full max-w-6xl px-4 py-10 sm:py-12">
       <nav aria-label="Breadcrumb" className="mb-6 text-sm">
         <Link href="/games" className="text-muted-foreground hover:text-foreground">
-          Code Games
+          Games
+        </Link>
+        <span aria-hidden="true" className="mx-2 text-muted-foreground">/</span>
+        <Link
+          href="/games/bug-hunt"
+          className="text-muted-foreground hover:text-foreground"
+        >
+          Bug Hunt
         </Link>
         <span aria-hidden="true" className="mx-2 text-muted-foreground">/</span>
         <span aria-current="page" className="font-medium">{language.name}</span>
@@ -63,7 +70,7 @@ export default async function GameLanguagePage({
         </span>
         <div>
           <h1 className="text-3xl font-bold tracking-tight sm:text-4xl">
-            {language.name} Bug Hunt
+            Bug Hunt: {language.name}
           </h1>
           <p className="mt-1 text-muted-foreground">{language.description}</p>
         </div>

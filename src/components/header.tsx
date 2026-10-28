@@ -1,5 +1,4 @@
 import Link from "next/link";
-import ToolsMenu from "@/components/tools-menu";
 
 export default function Header() {
   return (
@@ -8,10 +7,21 @@ export default function Header() {
         <Link href="/" className="text-xl font-bold tracking-tight text-primary">
           iamnoobs
         </Link>
-        <nav aria-label="Main" className="flex items-center gap-5 text-sm font-medium">
-          <ToolsMenu />
+        <nav
+          aria-label="Main"
+          className="flex min-w-0 items-center gap-3 overflow-x-auto text-xs font-medium sm:gap-4 sm:text-sm lg:gap-5"
+        >
+          <Link href="/tools" className="text-muted-foreground hover:text-foreground">
+            Tools
+          </Link>
           <Link href="/games" className="text-muted-foreground hover:text-foreground">
             Games
+          </Link>
+          <Link href="/activities" className="text-muted-foreground hover:text-foreground">
+            Activities
+          </Link>
+          <Link href="/courses" className="text-muted-foreground hover:text-foreground">
+            Courses
           </Link>
           <Link href="/articles" className="text-muted-foreground hover:text-foreground">
             Articles

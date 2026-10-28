@@ -11,7 +11,6 @@ export default function StopwatchClient() {
 
   useEffect(() => {
     if (running) {
-      startRef.current = Date.now() - time;
       intervalRef.current = setInterval(() => {
         setTime(Date.now() - startRef.current);
       }, 10);
@@ -26,6 +25,10 @@ export default function StopwatchClient() {
     return `${String(mins).padStart(2, "0")}:${String(secs).padStart(2, "0")}.${String(centis).padStart(2, "0")}`;
   };
 
+  const toggleRunning = () => {
+    if (!running) startRef.current = Date.now() - time;
+    setRunning((current) => !current);
+  };
   const reset = () => { setRunning(false); setTime(0); setLaps([]); };
   const lap = () => setLaps([time, ...laps]);
 
@@ -35,7 +38,7 @@ export default function StopwatchClient() {
         <p className="text-6xl font-mono font-bold text-foreground tracking-wider">{format(time)}</p>
       </div>
       <div className="flex gap-3">
-        <button onClick={() => setRunning(!running)} className={`rounded-xl px-8 py-3 text-sm font-semibold text-white ${running ? "bg-red-500" : "bg-green-500"}`}>{running ? "Stop" : "Start"}</button>
+        <button onClick={toggleRunning} className={`rounded-xl px-8 py-3 text-sm font-semibold text-white ${running ? "bg-red-500" : "bg-green-500"}`}>{running ? "Stop" : "Start"}</button>
         {running && <button onClick={lap} className="rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-foreground">Lap</button>}
         {!running && time > 0 && <button onClick={reset} className="rounded-xl bg-accent px-6 py-3 text-sm font-semibold text-foreground">Reset</button>}
       </div>

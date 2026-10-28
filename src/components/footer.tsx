@@ -21,6 +21,9 @@ const toolGroups = [
 ];
 
 const companyLinks = [
+  { href: "/games", label: "Games" },
+  { href: "/activities", label: "Activities" },
+  { href: "/courses", label: "Courses" },
   { href: "/about", label: "About" },
   { href: "/articles", label: "Articles" },
   { href: "/contact", label: "Contact & Feedback" },
@@ -57,7 +60,7 @@ export default function Footer() {
               productivity, and everyday digital tasks.
             </p>
             <Link
-              href="/#tools"
+              href="/tools"
               className="mt-4 inline-flex text-sm font-medium text-primary hover:underline"
             >
               Browse all tools
@@ -85,8 +88,8 @@ export default function Footer() {
             </nav>
           ))}
 
-          <nav aria-label="Company">
-            <h2 className="text-sm font-semibold text-foreground">Company</h2>
+          <nav aria-label="Explore and company">
+            <h2 className="text-sm font-semibold text-foreground">Explore &amp; company</h2>
             <ul className="mt-4 space-y-3">
               {companyLinks.map((link) => (
                 <li key={link.href}>

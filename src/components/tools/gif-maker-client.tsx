@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- Frame previews use data URLs read from user uploads. */
 import { useState, useRef } from "react";
 
 export default function GifMakerClient() {

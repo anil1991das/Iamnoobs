@@ -52,12 +52,48 @@ static export before publishing.
 
 ## Code games
 
-The Code Games hub is available at `/games`. Language paths and their 10
-fixed-answer challenges are defined in `src/lib/games/bug-hunt.ts`; adding a
+The searchable tools directory is available at `/tools`; the home page links
+to it and individual tool routes remain at `/<tool-slug>`.
+
+The Games hub at `/games` lists distinct games. Bug Hunt is one game with its
+language picker at `/games/bug-hunt`; Python, C, C++, Java, and C# each have 10
+fixed-answer challenges defined in `src/lib/games/bug-hunt.ts`. Adding a
 language there automatically adds its static route and sitemap entry. Each
 challenge should include a correct answer index and a teaching explanation.
 Answers are checked against fixed choices—the game does not execute player
-code—and completed levels are saved in the visitor's browser.
+code—and completed levels are saved in the visitor's browser. Snake is listed
+as a playable browser game at `/games/snake`, with guided Python examples for
+the game loop, coordinates, keyboard input, collisions, and scoring. The game
+does not execute the displayed Python examples.
+
+## Interactive activities
+
+The Activities hub at `/activities` lists four original browser experiences:
+Internet Time Machine, Pixel Playground, Algorithm Playground, and Signal
+Journey. Their copy, metadata, and static route slugs are defined in
+`src/lib/activities/registry.ts`; the client interactions are in
+`src/components/activity-experience.tsx`. Keep each activity self-contained,
+keyboard accessible, and usable without an account or server-side state.
+
+## Programming courses
+
+The self-paced Python and C courses are listed at `/courses`. Course content,
+module checkpoints, lesson examples, and fixed-answer relevance quests are
+defined in `src/lib/courses/curriculum.ts`; course routes are generated from
+those course slugs. The shared player in `src/components/course-player.tsx`
+tracks lesson and quest XP, badges, and an optional non-punitive study streak
+in versioned browser-local storage. The course player presents code examples
+for learning and does not execute learner-submitted code. Keep browser storage
+failures visible to learners and update the static sitemap when changing
+discoverable route registries.
+
+## Production checks
+
+Run `npm run lint` and `npm run typecheck` before releasing. `npm test` builds
+the static site and runs Node-based smoke tests against the exported tools
+route, deployment redirects, sitemap, robots file, and privacy disclosures.
+Deploy the generated `out/` directory with the platform configuration files
+from `public/` so the static host applies the intended redirects and headers.
 
 ## Deploy on Vercel
 
