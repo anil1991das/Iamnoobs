@@ -2,6 +2,7 @@
 
 import Link from "next/link";
 import {
+  useEffect,
   useMemo,
   useRef,
   useState,
@@ -71,12 +72,33 @@ export default function ToolsMenu() {
     }
   }
 
+  useEffect(() => {
+    if (!isOpen) return;
+
+    function handleOutsidePointerDown(event: PointerEvent) {
+      if (
+        event.target instanceof Node &&
+        !menuRef.current?.contains(event.target)
+      ) {
+        closeMenu();
+      }
+    }
+
+    document.addEventListener("pointerdown", handleOutsidePointerDown);
+    return () =>
+      document.removeEventListener("pointerdown", handleOutsidePointerDown);
+  }, [isOpen]);
+
   return (
     <div
       ref={menuRef}
       className="relative"
-      onMouseEnter={() => setIsOpen(true)}
-      onMouseLeave={closeMenu}
+      onPointerEnter={(event) => {
+        if (event.pointerType === "mouse") setIsOpen(true);
+      }}
+      onPointerLeave={(event) => {
+        if (event.pointerType === "mouse") closeMenu();
+      }}
       onFocusCapture={() => setIsOpen(true)}
       onBlurCapture={handleBlur}
       onKeyDown={handleKeyDown}
@@ -116,7 +138,7 @@ export default function ToolsMenu() {
       {isOpen && (
       <div
         id="tools-menu-panel"
-        className="absolute right-0 top-full z-50 w-[min(48rem,calc(100vw-2rem))] overflow-hidden rounded-xl border border-card-border bg-card text-foreground shadow-xl"
+        className="fixed inset-x-0 top-14 z-50 flex max-h-[calc(100dvh-3.5rem)] flex-col overflow-hidden border-y border-card-border bg-card text-foreground shadow-xl md:absolute md:inset-x-auto md:right-0 md:top-full md:max-h-[min(65vh,34rem)] md:w-[min(48rem,calc(100vw-2rem))] md:rounded-xl md:border"
       >
         <div className="border-b border-card-border p-4">
           <label htmlFor="tools-menu-search" className="sr-only">
@@ -137,10 +159,10 @@ export default function ToolsMenu() {
           )}
         </div>
 
-        <div className="grid max-h-[min(65vh,34rem)] grid-cols-1 overflow-y-auto md:grid-cols-[14rem_minmax(0,1fr)]">
+        <div className="grid min-h-0 flex-1 grid-cols-1 overflow-y-auto md:grid-cols-[14rem_minmax(0,1fr)] md:overflow-hidden">
           <nav
             aria-label="Tool categories"
-            className="flex gap-2 overflow-x-auto border-b border-card-border p-3 md:block md:space-y-1 md:overflow-x-visible md:border-b-0 md:border-r"
+            className="flex gap-2 overflow-x-auto border-b border-card-border p-3 md:block md:overflow-y-auto md:space-y-1 md:overflow-x-hidden md:border-b-0 md:border-r"
           >
             {categories.map((category) => {
               const count = tools.filter(
@@ -171,7 +193,7 @@ export default function ToolsMenu() {
             })}
           </nav>
 
-          <div className="min-w-0 p-4">
+          <div className="min-w-0 p-4 md:overflow-y-auto">
             {visibleGroups.length > 0 ? (
               <div className="space-y-5">
                 {visibleGroups.map(({ category, tools: categoryTools }) => (
