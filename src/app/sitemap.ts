@@ -1,5 +1,6 @@
 import { MetadataRoute } from "next";
 import { getPublishedArticles } from "@/lib/articles";
+import { gameLanguages } from "@/lib/games/bug-hunt";
 import { tools } from "@/lib/tools/registry";
 import { hasToolComponent } from "@/lib/tools/tool-components";
 
@@ -20,6 +21,18 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
+  const gamePages = [
+    {
+      url: `${baseUrl}/games`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    ...gameLanguages.map((language) => ({
+      url: `${baseUrl}/games/${language.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
 
   return [
     {
@@ -64,5 +77,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...toolPages,
     ...articlePages,
+    ...gamePages,
   ];
 }

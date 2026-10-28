@@ -50,6 +50,15 @@ a static export, so rebuild and redeploy after adding or editing articles. Run
 `npm run build` to validate article metadata, links, cover images, and the
 static export before publishing.
 
+## Code games
+
+The Code Games hub is available at `/games`. Language paths and their 10
+fixed-answer challenges are defined in `src/lib/games/bug-hunt.ts`; adding a
+language there automatically adds its static route and sitemap entry. Each
+challenge should include a correct answer index and a teaching explanation.
+Answers are checked against fixed choices—the game does not execute player
+code—and completed levels are saved in the visitor's browser.
+
 ## Deploy on Vercel
 
 The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.

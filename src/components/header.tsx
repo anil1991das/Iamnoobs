@@ -10,6 +10,9 @@ export default function Header() {
         </Link>
         <nav aria-label="Main" className="flex items-center gap-5 text-sm font-medium">
           <ToolsMenu />
+          <Link href="/games" className="text-muted-foreground hover:text-foreground">
+            Games
+          </Link>
           <Link href="/articles" className="text-muted-foreground hover:text-foreground">
             Articles
           </Link>
