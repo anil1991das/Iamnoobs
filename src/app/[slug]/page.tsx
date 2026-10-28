@@ -7,6 +7,7 @@ import { seoData } from "@/lib/tools/seo-data";
 import ToolLayout from "@/components/tool-layout";
 import SeoContent from "@/components/seo-content";
 import ComingSoon from "@/components/coming-soon";
+import { getPublishedArticles } from "@/lib/articles";
 
 interface PageProps {
   params: Promise<{ slug: string }>;
@@ -20,6 +21,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
   const { slug } = await params;
   const tool = getToolBySlug(slug);
   if (!tool) return {};
+  const isLive = hasToolComponent(slug);
 
   return {
     title: { absolute: tool.metaTitle },
@@ -40,6 +42,12 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     alternates: {
       canonical: `https://iamnoobs.com/${tool.slug}`,
     },
+    ...(!isLive && {
+      robots: {
+        index: false,
+        follow: true,
+      },
+    }),
   };
 }
 
@@ -50,6 +58,17 @@ export default async function ToolPage({ params }: PageProps) {
 
   const ToolClient = getToolComponent(slug);
   const seo = seoData[slug];
+  const relatedArticles = hasToolComponent(slug)
+    ? (await getPublishedArticles())
+        .filter((article) =>
+          article.relatedTools.some((relatedTool) => relatedTool.url === `/${slug}`),
+        )
+        .map(({ slug: articleSlug, title, description }) => ({
+          slug: articleSlug,
+          title,
+          description,
+        }))
+    : [];
 
   return (
     <ToolLayout
@@ -57,6 +76,7 @@ export default async function ToolPage({ params }: PageProps) {
       description={tool.description}
       icon={tool.icon}
       slug={tool.slug}
+      relatedArticles={relatedArticles}
       seoContent={
         seo ? <SeoContent content={seo.content} faqs={seo.faqs} /> : undefined
       }
