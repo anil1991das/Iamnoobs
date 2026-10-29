@@ -77,15 +77,31 @@ keyboard accessible, and usable without an account or server-side state.
 
 ## Programming courses
 
-The self-paced Python and C courses are listed at `/courses`. Course content,
-module checkpoints, lesson examples, and fixed-answer relevance quests are
-defined in `src/lib/courses/curriculum.ts`; course routes are generated from
-those course slugs. The shared player in `src/components/course-player.tsx`
-tracks lesson and quest XP, badges, and an optional non-punitive study streak
-in versioned browser-local storage. The course player presents code examples
-for learning and does not execute learner-submitted code. Keep browser storage
-failures visible to learners and update the static sitemap when changing
-discoverable route registries.
+The self-paced courses are listed at `/courses`. Shared course types are in
+`src/lib/courses/types.ts`, and each course's content is in its own file under
+`src/lib/courses/courses/`. To add a course, create a `.ts` file in that
+directory, define a `CourseConfig`, and default-export it. The course registry
+discovers these files automatically; no registry or sitemap edits are needed.
+To give it a course icon, add a PNG in `src/lib/courses/courses/icon/` with the
+same filename stem as its TypeScript file (for example,
+`javascriptCourse.ts` pairs with `icon/javascriptCourse.png`). Matching icons
+are loaded automatically on the course listing and detail page. If no matching
+PNG exists, the course's `icon` emoji is used as a fallback.
+Give the course a unique lowercase kebab-case slug, and give every module and
+lesson a stable, course-specific ID. Each lesson needs its content, a code
+example, and a fixed-answer relevance quest. Add module checkpoints and a
+capstone as shown in the existing course files. Course routes, the course
+listing, homepage cards, and sitemap entries are generated from the discovered
+courses.
+
+After adding or changing course files, rebuild and redeploy the static site to
+publish the updated course pages.
+
+The shared player in `src/components/course-player.tsx` tracks lesson and
+quest XP, badges, and an optional non-punitive study streak in versioned
+browser-local storage. The course player presents code examples for learning
+and does not execute learner-submitted code. Keep browser storage failures
+visible to learners.
 
 ## Production checks
 
