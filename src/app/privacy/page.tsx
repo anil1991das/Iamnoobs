@@ -2,7 +2,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: "Privacy Policy",
-  description: "How iamnoobs online tools handle information and browser storage.",
+  description:
+    "How iamnoobs tools, games, activities, and courses handle information and browser storage.",
   alternates: { canonical: "https://iamnoobs.com/privacy" },
 };
 
@@ -11,7 +12,7 @@ export default function PrivacyPage() {
     <main className="mx-auto w-full max-w-3xl space-y-6 px-4 py-12 text-foreground">
       <header className="space-y-2">
         <h1 className="text-3xl font-bold tracking-tight">Privacy Policy</h1>
-        <p className="text-sm text-muted-foreground">Last updated: October 27, 2026</p>
+        <p className="text-sm text-muted-foreground">Last updated: October 29, 2026</p>
       </header>
 
       <section className="space-y-3">
@@ -49,10 +50,18 @@ export default function PrivacyPage() {
       <section className="space-y-3">
         <h2 className="text-xl font-semibold">Information stored in your browser</h2>
         <p>
-          Daily Planner, Habit Tracker, Notes, and Todo List save data in your
-          browser&apos;s local storage on your device. This data is not synced to
-          an iamnoobs account. Clearing this site&apos;s browser storage removes
-          it.
+          Daily Planner, Habit Tracker, Notes, and Todo List save their data in
+          your browser&apos;s local storage. Bug Hunt saves completed level
+          progress, and the Python and C courses save lesson completion, quest
+          progress, XP, badges, and optional streak settings in your browser&apos;s
+          local storage. This information is not synced to an iamnoobs account
+          or sent to an iamnoobs application server. Clearing this site&apos;s
+          browser storage removes it. Progress may not persist if browser
+          storage is unavailable or blocked.
+        </p>
+        <p>
+          The interactive activities do not require an account. Pixel Playground
+          keeps your drawing in the current page and does not upload it.
         </p>
       </section>
 
@@ -71,8 +80,8 @@ export default function PrivacyPage() {
         <h2 className="text-xl font-semibold">Your choices and contact</h2>
         <p>
           You can avoid tools that contact external services, avoid entering
-          sensitive data, and clear locally stored tool data through your
-          browser settings. For privacy questions, email{" "}
+          sensitive data, and clear locally stored data through your browser
+          settings. For privacy questions, email{" "}
           <a className="text-primary underline" href="mailto:apicjero@gmail.com">
             apicjero@gmail.com
           </a>

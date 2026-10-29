@@ -1,22 +1,25 @@
 "use client";
-import { useState, useMemo } from "react";
+import { useMemo, useState } from "react";
 import { calculateSubnet } from "@/lib/tools/css-design-tools";
 import CopyButton from "@/components/copy-button";
 
 export default function IpSubnetCalculatorClient() {
   const [ip, setIp] = useState("192.168.1.0");
   const [cidr, setCidr] = useState(24);
-  const [error, setError] = useState("");
-
-  const result = useMemo(() => {
+  const subnet = useMemo(() => {
     try {
-      setError("");
-      return calculateSubnet(ip, cidr);
-    } catch (e) {
-      setError((e as Error).message);
-      return null;
+      return { result: calculateSubnet(ip, cidr), error: "" };
+    } catch (error) {
+      return {
+        result: null,
+        error:
+          error instanceof Error
+            ? error.message
+            : "Unable to calculate this subnet.",
+      };
     }
   }, [ip, cidr]);
+  const { result, error } = subnet;
 
   const fields = result ? [
     ["Network Address", result.networkAddress],

@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- The generated favicon is a client-side data URL. */
 import { useState } from "react";
 import { generateFavicon } from "@/lib/tools/image-tools-extended";
 

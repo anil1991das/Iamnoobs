@@ -1,5 +1,8 @@
 import { MetadataRoute } from "next";
 import { getPublishedArticles } from "@/lib/articles";
+import { activities } from "@/lib/activities/registry";
+import { courses } from "@/lib/courses/curriculum";
+import { gameLanguages } from "@/lib/games/bug-hunt";
 import { tools } from "@/lib/tools/registry";
 import { hasToolComponent } from "@/lib/tools/tool-components";
 
@@ -20,6 +23,52 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: "monthly" as const,
     priority: 0.7,
   }));
+  const gamePages = [
+    {
+      url: `${baseUrl}/games`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/games/bug-hunt`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    {
+      url: `${baseUrl}/games/snake`,
+      changeFrequency: "weekly" as const,
+      priority: 0.8,
+    },
+    ...gameLanguages.map((language) => ({
+      url: `${baseUrl}/games/${language.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+  const activityPages = [
+    {
+      url: `${baseUrl}/activities`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    ...activities.map((activity) => ({
+      url: `${baseUrl}/activities/${activity.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.7,
+    })),
+  ];
+  const coursePages = [
+    {
+      url: `${baseUrl}/courses`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    },
+    ...courses.map((course) => ({
+      url: `${baseUrl}/courses/${course.slug}`,
+      changeFrequency: "monthly" as const,
+      priority: 0.8,
+    })),
+  ];
 
   return [
     {
@@ -31,6 +80,11 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
       url: `${baseUrl}/articles`,
       changeFrequency: "weekly",
       priority: 0.7,
+    },
+    {
+      url: `${baseUrl}/tools`,
+      changeFrequency: "weekly",
+      priority: 0.9,
     },
     {
       url: `${baseUrl}/about`,
@@ -64,5 +118,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     },
     ...toolPages,
     ...articlePages,
+    ...gamePages,
+    ...activityPages,
+    ...coursePages,
   ];
 }

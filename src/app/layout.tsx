@@ -1,20 +1,24 @@
 import type { Metadata } from "next";
 import Header from "@/components/header";
 import Footer from "@/components/footer";
-import { ToolPreviewProvider } from "@/components/tool-preview-context";
 import "./globals.css";
 
 export const metadata: Metadata = {
   title: {
-    default: "iamnoobs — Tools and Guides for Everyday Tasks",
+    default: "iamnoobs — Tools, Interactive Activities & Coding Courses",
     template: "%s | iamnoobs",
   },
   description:
-    "Explore practical tools and clear guides for development, documents, productivity, and everyday digital tasks. Find what you need and learn how to use it.",
+    "Use free online tools, explore original interactive activities and games, and learn Python or C with guided, gamified courses.",
   keywords: [
     "online tools",
     "developer tools",
     "free tools",
+    "interactive activities",
+    "coding games",
+    "learn Python",
+    "learn C programming",
+    "programming courses",
     "json formatter",
     "password generator",
     "base64 encoder",
@@ -25,15 +29,15 @@ export const metadata: Metadata = {
     type: "website",
     locale: "en_US",
     siteName: "iamnoobs",
-    title: "iamnoobs — Tools and Guides for Everyday Tasks",
+    title: "iamnoobs — Tools, Interactive Activities & Coding Courses",
     description:
-      "Practical tools and clear guides for development, documents, productivity, and everyday digital tasks.",
+      "Practical tools, original interactive experiences, browser games, and guided Python and C learning paths.",
   },
   twitter: {
     card: "summary_large_image",
-    title: "iamnoobs — Tools and Guides for Everyday Tasks",
+    title: "iamnoobs — Tools, Interactive Activities & Coding Courses",
     description:
-      "Practical tools and clear guides for development, documents, productivity, and everyday digital tasks.",
+      "Practical tools, original interactive experiences, browser games, and guided Python and C learning paths.",
   },
   alternates: {
     canonical: "https://iamnoobs.com",
@@ -57,7 +61,7 @@ const jsonLd = {
   name: "iamnoobs",
   url: "https://iamnoobs.com",
   description:
-    "Practical tools and clear guides for development, documents, productivity, and everyday digital tasks.",
+    "Practical tools, original interactive activities and games, and guided Python and C courses for learning by doing.",
   potentialAction: {
     "@type": "SearchAction",
     target: "https://iamnoobs.com/?q={search_term_string}",
@@ -88,13 +92,11 @@ export default function RootLayout({
         >
           Skip to content
         </a>
-        <ToolPreviewProvider>
-          <Header />
-          <div id="main-content" className="flex-1">
-            {children}
-          </div>
-          <Footer />
-        </ToolPreviewProvider>
+        <Header />
+        <div id="main-content" className="flex-1">
+          {children}
+        </div>
+        <Footer />
       </body>
     </html>
   );

@@ -2,9 +2,7 @@
 import { useState, useMemo } from "react";
 import CopyButton from "@/components/copy-button";
 
-const ASCII_CHARS = " .:-=+*#%@";
-
-function textToAscii(text: string, width: number = 60): string {
+function textToAscii(text: string): string {
   const lines: string[] = [];
   const chars = text.toUpperCase().split("");
   const charMap: Record<string, string[]> = {

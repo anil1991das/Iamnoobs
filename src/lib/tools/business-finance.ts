@@ -36,7 +36,7 @@ export interface IncomeTaxResult {
 
 export function calculateIncomeTax(income: number, regime: "old" | "new", deductions: number = 0): IncomeTaxResult {
   const slabs: { range: string; rate: number; tax: number }[] = [];
-  let taxableIncome = regime === "old" ? Math.max(0, income - deductions) : income;
+  const taxableIncome = regime === "old" ? Math.max(0, income - deductions) : income;
   let tax = 0;
 
   if (regime === "new") {

@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react";
 import { timezones, convertTimezone, getCurrentTimeInZone } from "@/lib/tools/timezone-converter";
+import { formatLocalDate } from "@/lib/utils/date";
 
 export default function TimezoneConverterClient() {
   const [date, setDate] = useState("");
@@ -13,9 +14,16 @@ export default function TimezoneConverterClient() {
   const [toCurrent, setToCurrent] = useState("");
 
   useEffect(() => {
-    const now = new Date();
-    setDate(now.toISOString().split("T")[0]);
-    setTime(now.toTimeString().slice(0, 5));
+    let active = true;
+    Promise.resolve().then(() => {
+      if (!active) return;
+      const now = new Date();
+      setDate(formatLocalDate(now));
+      setTime(now.toTimeString().slice(0, 5));
+    });
+    return () => {
+      active = false;
+    };
   }, []);
 
   useEffect(() => {
@@ -23,9 +31,12 @@ export default function TimezoneConverterClient() {
       setFromCurrent(getCurrentTimeInZone(fromTz));
       setToCurrent(getCurrentTimeInZone(toTz));
     };
-    update();
     const id = setInterval(update, 1000);
-    return () => clearInterval(id);
+    const initialUpdate = setTimeout(update, 0);
+    return () => {
+      clearInterval(id);
+      clearTimeout(initialUpdate);
+    };
   }, [fromTz, toTz]);
 
   const handleConvert = () => {

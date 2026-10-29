@@ -29,7 +29,7 @@ export default function AboutPage() {
           do and how to use them.
         </p>
         <p>
-          Browse the <Link className="text-primary underline" href="/#tools">tools</Link>{" "}
+          Browse the <Link className="text-primary underline" href="/tools">tools</Link>{" "}
           or read our <Link className="text-primary underline" href="/articles">articles and guides</Link>.
         </p>
       </section>

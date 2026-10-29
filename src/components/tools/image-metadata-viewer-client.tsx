@@ -1,5 +1,6 @@
 "use client";
 
+/* eslint-disable @next/next/no-img-element -- The preview uses a browser-created object URL. */
 import { useState } from "react";
 import { getImageMetadata } from "@/lib/tools/image-tools-extended";
 

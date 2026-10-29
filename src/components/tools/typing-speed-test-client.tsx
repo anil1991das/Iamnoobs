@@ -19,12 +19,13 @@ export default function TypingSpeedTestClient() {
   const timerRef = useRef<ReturnType<typeof setInterval>>(undefined);
 
   const start = useCallback(() => {
+    const now = Date.now();
     setText(sampleTexts[Math.floor(Math.random() * sampleTexts.length)]);
     setTyped("");
     setErrors(0);
     setState("running");
-    setStartTime(Date.now());
-    setElapsed(0);
+    setStartTime(now);
+    setElapsed(now);
     inputRef.current?.focus();
     timerRef.current = setInterval(() => setElapsed(Date.now()), 100);
   }, []);
@@ -46,7 +47,7 @@ export default function TypingSpeedTestClient() {
 
   useEffect(() => () => clearInterval(timerRef.current), []);
 
-  const timeSec = state === "idle" ? 0 : ((state === "running" ? elapsed || Date.now() : elapsed) - startTime) / 1000;
+  const timeSec = state === "idle" ? 0 : (elapsed - startTime) / 1000;
   const words = typed.trim().split(/\s+/).filter(Boolean).length;
   const wpm = timeSec > 0 ? Math.round((words / timeSec) * 60) : 0;
   const accuracy = typed.length > 0 ? Math.round(((typed.length - errors) / typed.length) * 100) : 100;
