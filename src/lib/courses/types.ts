@@ -29,6 +29,7 @@ export interface CourseConfig {
   language: string;
   title: string;
   icon: string;
+  iconImage?: string;
   levelLabel: string;
   description: string;
   metaDescription: string;

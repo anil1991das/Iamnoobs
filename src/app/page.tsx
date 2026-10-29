@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Image from "next/image";
 import { activities } from "@/lib/activities/registry";
 import { courses } from "@/lib/courses/curriculum";
 import { tools } from "@/lib/tools/registry";
@@ -133,9 +134,19 @@ export default function HomePage() {
             >
               <div className="flex items-center gap-3">
                 <span aria-hidden="true" className="flex h-11 w-11 items-center justify-center rounded-xl bg-primary/10 text-xl">
-                  {course.icon}
+                  {course.iconImage ? (
+                    <Image
+                      src={course.iconImage}
+                      alt=""
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 object-contain"
+                    />
+                  ) : (
+                    course.icon
+                  )}
                 </span>
-                <div>
+                <div className="min-w-0">
                   <h3 className="font-semibold group-hover:text-primary">{course.title}</h3>
                   <p className="text-sm text-muted-foreground">{course.levelLabel} · {course.modules.length} modules</p>
                 </div>

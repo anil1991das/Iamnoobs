@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import CoursePlayer from "@/components/course-player";
@@ -87,7 +88,17 @@ export default async function CoursePage({ params }: CoursePageProps) {
             aria-hidden="true"
             className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-2xl lg:h-14 lg:w-14 lg:text-3xl"
           >
-            {course.icon}
+            {course.iconImage ? (
+              <Image
+                src={course.iconImage}
+                alt=""
+                width={32}
+                height={32}
+                className="h-8 w-8 object-contain"
+              />
+            ) : (
+              course.icon
+            )}
           </span>
           <div className="min-w-0">
             <p className="text-xs font-semibold uppercase tracking-wide text-primary sm:text-sm">

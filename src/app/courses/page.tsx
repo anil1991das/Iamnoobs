@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import Image from "next/image";
 import Link from "next/link";
 import { courses } from "@/lib/courses/curriculum";
 
@@ -49,7 +50,17 @@ export default function CoursesPage() {
                   aria-hidden="true"
                   className="flex h-12 w-12 items-center justify-center rounded-xl bg-primary/10 text-2xl"
                 >
-                  {course.icon}
+                  {course.iconImage ? (
+                    <Image
+                      src={course.iconImage}
+                      alt=""
+                      width={32}
+                      height={32}
+                      className="h-8 w-8 object-contain"
+                    />
+                  ) : (
+                    course.icon
+                  )}
                 </span>
                 <div className="min-w-0">
                   <p className="text-xs font-semibold uppercase tracking-wide text-primary">

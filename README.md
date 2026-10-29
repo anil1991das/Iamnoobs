@@ -82,6 +82,11 @@ The self-paced courses are listed at `/courses`. Shared course types are in
 `src/lib/courses/courses/`. To add a course, create a `.ts` file in that
 directory, define a `CourseConfig`, and default-export it. The course registry
 discovers these files automatically; no registry or sitemap edits are needed.
+To give it a course icon, add a PNG in `src/lib/courses/courses/icon/` with the
+same filename stem as its TypeScript file (for example,
+`javascriptCourse.ts` pairs with `icon/javascriptCourse.png`). Matching icons
+are loaded automatically on the course listing and detail page. If no matching
+PNG exists, the course's `icon` emoji is used as a fallback.
 Give the course a unique lowercase kebab-case slug, and give every module and
 lesson a stable, course-specific ID. Each lesson needs its content, a code
 example, and a fixed-answer relevance quest. Add module checkpoints and a
