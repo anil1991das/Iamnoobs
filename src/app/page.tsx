@@ -1,13 +1,18 @@
 import Link from "next/link";
 import Image from "next/image";
 import { activities } from "@/lib/activities/registry";
-import { courses } from "@/lib/courses/curriculum";
+import { courses, type CourseConfig } from "@/lib/courses/curriculum";
 import { tools } from "@/lib/tools/registry";
 import { hasToolComponent } from "@/lib/tools/tool-components";
+
+const featuredCourseSlugs = ["python", "c", "javascript", "cpp"];
 
 export default function HomePage() {
   const liveToolCount = tools.filter((tool) => hasToolComponent(tool.slug)).length;
   const featuredActivities = activities.slice(0, 3);
+  const featuredCourses = featuredCourseSlugs
+    .map((slug) => courses.find((course) => course.slug === slug))
+    .filter((course): course is CourseConfig => course !== undefined);
 
   return (
     <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
@@ -126,7 +131,7 @@ export default function HomePage() {
           </Link>
         </div>
         <div className="grid gap-4 sm:grid-cols-2">
-          {courses.map((course) => (
+          {featuredCourses.map((course) => (
             <Link
               key={course.slug}
               href={`/courses/${course.slug}`}

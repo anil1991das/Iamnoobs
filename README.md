@@ -90,9 +90,12 @@ PNG exists, the course's `icon` emoji is used as a fallback.
 Give the course a unique lowercase kebab-case slug, and give every module and
 lesson a stable, course-specific ID. Each lesson needs its content, a code
 example, and a fixed-answer relevance quest. Add module checkpoints and a
-capstone as shown in the existing course files. Course routes, the course
-listing, homepage cards, and sitemap entries are generated from the discovered
-courses.
+capstone as shown in the existing course files. Course routes, the full course
+listing, and sitemap entries are generated from the discovered courses. The
+homepage features a curated set of four courses; edit
+`featuredCourseSlugs` in `src/app/page.tsx` to change those selections. New
+courses remain available in the full listing without being added to the
+homepage automatically.
 
 After adding or changing course files, rebuild and redeploy the static site to
 publish the updated course pages.
