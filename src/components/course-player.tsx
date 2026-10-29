@@ -132,7 +132,7 @@ function CourseLessonView({
   return (
     <article aria-labelledby="lesson-title" className="min-w-0">
       <p className="text-sm font-semibold text-primary">{moduleTitle}</p>
-      <h2 id="lesson-title" className="mt-1 text-3xl font-bold tracking-tight">
+      <h2 id="lesson-title" className="mt-1 break-words text-2xl font-bold tracking-tight sm:text-3xl">
         {lesson.title}
       </h2>
       <p className="mt-3 text-lg leading-7 text-muted-foreground">
@@ -158,7 +158,7 @@ function CourseLessonView({
       </section>
       <section
         aria-labelledby="quest-title"
-        className="mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-5"
+        className="mt-8 rounded-2xl border border-primary/20 bg-primary/5 p-4 lg:p-5"
       >
         <div className="flex flex-wrap items-start justify-between gap-3">
           <div>
@@ -197,7 +197,7 @@ function CourseLessonView({
                 }}
                 className="accent-primary"
               />
-              <span>{choice}</span>
+              <span className="min-w-0 break-words">{choice}</span>
             </label>
           ))}
         </fieldset>
@@ -214,15 +214,15 @@ function CourseLessonView({
           </p>
         </div>
       </section>
-      <div className="mt-6 flex flex-wrap items-center justify-between gap-3 border-t border-card-border pt-5">
-        <p className="text-sm text-muted-foreground">
+      <div className="mt-6 flex flex-col items-stretch gap-3 border-t border-card-border pt-5 lg:flex-row lg:items-center lg:justify-between">
+        <p className="text-sm leading-6 text-muted-foreground">
           {completed ? "Lesson complete · +20 XP earned" : "Mark this lesson complete when you are ready."}
         </p>
         <button
           type="button"
           onClick={onComplete}
           disabled={completed}
-          className="min-h-11 rounded-lg bg-primary px-5 text-sm font-semibold text-white hover:bg-primary-hover disabled:cursor-default disabled:bg-success"
+          className="min-h-11 w-full rounded-lg bg-primary px-5 text-sm font-semibold text-white hover:bg-primary-hover disabled:cursor-default disabled:bg-success lg:w-auto"
         >
           {completed ? "Completed ✓" : "Complete lesson · +20 XP"}
         </button>
@@ -341,7 +341,7 @@ export default function CoursePlayer({ course }: { course: CourseConfig }) {
   return (
     <section aria-label={`${course.language} course learning player`} className="mt-8">
       <div className="grid gap-5 lg:grid-cols-[17rem_minmax(0,1fr)]">
-        <aside className="h-fit rounded-2xl border border-card-border bg-card p-4 lg:sticky lg:top-20">
+        <aside className="h-fit min-w-0 rounded-2xl border border-card-border bg-card p-3 lg:sticky lg:top-20 lg:p-4">
           <div className="flex items-start justify-between gap-3">
             <div>
               <p className="text-xs font-semibold uppercase tracking-wide text-primary">
@@ -400,7 +400,7 @@ export default function CoursePlayer({ course }: { course: CourseConfig }) {
               Loading saved progress…
             </p>
           )}
-          <nav aria-label="Course lessons" className="mt-5 max-h-[50vh] space-y-4 overflow-y-auto pr-1">
+          <nav aria-label="Course lessons" className="mt-4 max-h-[35vh] space-y-4 overflow-y-auto pr-1 lg:mt-5 lg:max-h-[50vh]">
             {course.modules.map((module, moduleIndex) => {
               const moduleCompleted = module.lessons.every((lesson) =>
                 completedLessons.has(lesson.id),
@@ -409,9 +409,9 @@ export default function CoursePlayer({ course }: { course: CourseConfig }) {
                 <section key={module.id} aria-labelledby={`module-${module.id}`}>
                   <h3
                     id={`module-${module.id}`}
-                    className="mb-2 flex items-center justify-between gap-2 text-xs font-bold uppercase tracking-wide text-muted-foreground"
+                    className="mb-2 flex items-start justify-between gap-2 text-xs font-bold uppercase tracking-wide text-muted-foreground"
                   >
-                    <span>{moduleIndex + 1}. {module.title}</span>
+                    <span className="min-w-0 break-words">{moduleIndex + 1}. {module.title}</span>
                     {moduleCompleted && (
                       <span className="text-success" aria-label="Module complete">✓</span>
                     )}
@@ -440,7 +440,7 @@ export default function CoursePlayer({ course }: { course: CourseConfig }) {
                             >
                               {complete ? "✓" : lessonIndex + 1}
                             </span>
-                            <span>{lesson.title}</span>
+                            <span className="min-w-0 break-words">{lesson.title}</span>
                           </button>
                         </li>
                       );
@@ -472,7 +472,7 @@ export default function CoursePlayer({ course }: { course: CourseConfig }) {
             )}
           </div>
         </aside>
-        <div className="rounded-2xl border border-card-border bg-card p-5 sm:p-8">
+        <div className="min-w-0 rounded-2xl border border-card-border bg-card p-4 lg:p-8">
           <CourseLessonView
             key={active.lesson.id}
             lesson={active.lesson}

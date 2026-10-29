@@ -66,14 +66,14 @@ export default async function CoursePage({ params }: CoursePageProps) {
   };
 
   return (
-    <main className="mx-auto w-full max-w-7xl px-4 py-8 sm:px-6 sm:py-12">
+    <main className="mx-auto w-full max-w-7xl px-4 py-6 lg:px-6 lg:py-12">
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{
           __html: JSON.stringify(structuredData).replace(/</g, "\\u003c"),
         }}
       />
-      <nav aria-label="Breadcrumb" className="mb-6 text-sm">
+      <nav aria-label="Breadcrumb" className="mb-5 text-sm lg:mb-6">
         <Link href="/courses" className="text-muted-foreground hover:text-foreground">
           Courses
         </Link>
@@ -85,23 +85,23 @@ export default async function CoursePage({ params }: CoursePageProps) {
         <div className="flex items-start gap-4">
           <span
             aria-hidden="true"
-            className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-3xl"
+            className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-primary/10 text-2xl lg:h-14 lg:w-14 lg:text-3xl"
           >
             {course.icon}
           </span>
-          <div>
-            <p className="text-sm font-semibold uppercase tracking-wide text-primary">
+          <div className="min-w-0">
+            <p className="text-xs font-semibold uppercase tracking-wide text-primary sm:text-sm">
               {course.levelLabel} · {course.modules.length} modules · {lessonCount} lessons
             </p>
-            <h1 className="mt-1 text-3xl font-bold tracking-tight sm:text-5xl">
+            <h1 className="mt-1 break-words text-2xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
               {course.title}
             </h1>
           </div>
         </div>
-        <p className="mt-5 text-lg leading-8 text-muted-foreground">
+        <p className="mt-4 text-base leading-7 text-muted-foreground sm:mt-5 sm:text-lg sm:leading-8">
           {course.description}
         </p>
-        <div className="mt-5 grid gap-3 sm:grid-cols-2">
+        <div className="mt-4 grid gap-3 lg:mt-5 lg:grid-cols-2">
           <p className="rounded-xl border border-card-border bg-card p-4 text-sm leading-6">
             <strong>Who this is for:</strong> {course.audience}
           </p>
@@ -113,7 +113,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
 
       <CoursePlayer course={course} />
 
-      <section aria-labelledby="curriculum-title" className="mx-auto mt-12 max-w-4xl">
+      <section aria-labelledby="curriculum-title" className="mx-auto mt-10 max-w-4xl lg:mt-12">
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">
           Full curriculum
         </p>
@@ -124,7 +124,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
           {course.modules.map((module, index) => (
             <article
               key={module.id}
-              className="rounded-2xl border border-card-border bg-card p-5"
+              className="rounded-2xl border border-card-border bg-card p-4 lg:p-5"
             >
               <div className="flex flex-wrap items-baseline justify-between gap-2">
                 <h3 className="text-lg font-semibold">
@@ -137,7 +137,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
               <p className="mt-2 text-sm leading-6 text-muted-foreground">
                 {module.description}
               </p>
-              <ol className="mt-4 grid gap-2 sm:grid-cols-2">
+              <ol className="mt-4 grid gap-2 lg:grid-cols-2">
                 {module.lessons.map((lesson) => (
                   <li
                     key={lesson.id}
@@ -160,7 +160,7 @@ export default async function CoursePage({ params }: CoursePageProps) {
 
       <section
         aria-labelledby="capstone-title"
-        className="mx-auto mt-10 max-w-4xl rounded-2xl border border-primary/20 bg-primary/5 p-6"
+        className="mx-auto mt-8 max-w-4xl rounded-2xl border border-primary/20 bg-primary/5 p-4 lg:mt-10 lg:p-6"
       >
         <p className="text-sm font-semibold uppercase tracking-wide text-primary">
           Put it together
