@@ -75,7 +75,7 @@ export default function AsciiArtGeneratorClient() {
         <label className="space-y-1">
           <span className="text-sm font-medium">Enter Text</span>
           <input value={text} onChange={(e) => setText(e.target.value.slice(0, 20))} placeholder="Enter text (max 20 chars)..." className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" />
-          <p className="text-xs text-muted">Supports A-Z, 0-9, spaces, and basic punctuation</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Supports A-Z, 0-9, spaces, and basic punctuation</p>
         </label>
       )}
 

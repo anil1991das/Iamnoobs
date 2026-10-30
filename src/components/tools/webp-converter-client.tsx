@@ -32,7 +32,7 @@ export default function WebpConverterClient() {
 
       {result && (
         <div className="rounded-xl border border-border bg-card p-4 text-sm">
-          <span className="text-muted">Original: {file ? formatFileSize(file.size) : ""} → WebP: </span>
+          <span className="mb-2 text-sm font-semibold text-foreground">Original: {file ? formatFileSize(file.size) : ""} → WebP: </span>
           <span className="font-semibold text-foreground">{formatFileSize(result.size)}</span>
           {file && <span className="ml-2 text-green-600">({Math.round((1 - result.size / file.size) * 100)}% saved)</span>}
         </div>

@@ -41,11 +41,11 @@ export default function GstCalculatorClient() {
         <div className="rounded-xl border border-border bg-card p-6 space-y-2">
           <h3 className="text-lg font-semibold text-foreground">GST Breakdown</h3>
           <div className="grid grid-cols-2 gap-3">
-            <div className="rounded-lg bg-accent/50 p-3"><span className="text-xs text-muted">Base Amount</span><p className="text-lg font-bold text-foreground">₹{result.baseAmount.toLocaleString("en-IN")}</p></div>
+            <div className="rounded-lg bg-accent/50 p-3"><span className="mb-2 text-sm font-semibold text-foreground">Base Amount</span><p className="text-lg font-bold text-foreground">₹{result.baseAmount.toLocaleString("en-IN")}</p></div>
             {result.type === "intra" ? <>
-              <div className="rounded-lg bg-accent/50 p-3"><span className="text-xs text-muted">CGST ({result.gstRate / 2}%)</span><p className="text-lg font-bold text-foreground">₹{result.cgst.toLocaleString("en-IN")}</p></div>
-              <div className="rounded-lg bg-accent/50 p-3"><span className="text-xs text-muted">SGST ({result.gstRate / 2}%)</span><p className="text-lg font-bold text-foreground">₹{result.sgst.toLocaleString("en-IN")}</p></div>
-            </> : <div className="rounded-lg bg-accent/50 p-3"><span className="text-xs text-muted">IGST ({result.gstRate}%)</span><p className="text-lg font-bold text-foreground">₹{result.igst.toLocaleString("en-IN")}</p></div>}
+              <div className="rounded-lg bg-accent/50 p-3"><span className="mb-2 text-sm font-semibold text-foreground">CGST ({result.gstRate / 2}%)</span><p className="text-lg font-bold text-foreground">₹{result.cgst.toLocaleString("en-IN")}</p></div>
+              <div className="rounded-lg bg-accent/50 p-3"><span className="mb-2 text-sm font-semibold text-foreground">SGST ({result.gstRate / 2}%)</span><p className="text-lg font-bold text-foreground">₹{result.sgst.toLocaleString("en-IN")}</p></div>
+            </> : <div className="rounded-lg bg-accent/50 p-3"><span className="mb-2 text-sm font-semibold text-foreground">IGST ({result.gstRate}%)</span><p className="text-lg font-bold text-foreground">₹{result.igst.toLocaleString("en-IN")}</p></div>}
             <div className="rounded-lg bg-primary/10 p-3"><span className="text-xs text-primary">Total Amount</span><p className="text-xl font-bold text-primary">₹{result.totalAmount.toLocaleString("en-IN")}</p></div>
           </div>
         </div>

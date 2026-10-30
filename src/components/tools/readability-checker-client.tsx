@@ -18,19 +18,19 @@ export default function ReadabilityCheckerClient() {
         <>
           <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Flesch Score</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Flesch Score</p>
               <p className={`text-3xl font-bold ${result.fleschReading >= 60 ? "text-green-500" : result.fleschReading >= 30 ? "text-yellow-500" : "text-red-500"}`}>{result.fleschReading}</p>
             </div>
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Grade Level</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Grade Level</p>
               <p className="text-3xl font-bold text-primary">{result.fleschKincaid}</p>
             </div>
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Words</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Words</p>
               <p className="text-3xl font-bold">{result.wordCount}</p>
             </div>
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Sentences</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Sentences</p>
               <p className="text-3xl font-bold">{result.sentences}</p>
             </div>
           </div>

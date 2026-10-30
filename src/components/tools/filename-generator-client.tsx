@@ -22,9 +22,9 @@ export default function FilenameGeneratorClient() {
         <div><label className="text-sm font-medium text-foreground">Base text</label>
           <input type="text" value={text} onChange={(e) => setText(e.target.value)} placeholder="my document title" className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" /></div>
         <div className="grid grid-cols-2 gap-3">
-          <div><label className="text-xs text-muted">Extension</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Extension</label>
             <input type="text" value={extension} onChange={(e) => setExtension(e.target.value)} placeholder=".pdf" className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-          <div><label className="text-xs text-muted">Count: {count}</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Count: {count}</label>
             <input type="range" min="1" max="20" value={count} onChange={(e) => setCount(Number(e.target.value))} className="w-full" /></div>
         </div>
       </div>

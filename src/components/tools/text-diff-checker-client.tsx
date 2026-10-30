@@ -47,7 +47,7 @@ export default function TextDiffCheckerClient() {
           <div className="flex gap-4 text-sm">
             <span className="text-green-600">+{result.additions} added</span>
             <span className="text-red-600">-{result.deletions} removed</span>
-            <span className="text-muted">{result.unchanged} unchanged</span>
+            <span className="mb-2 text-sm font-semibold text-foreground">{result.unchanged} unchanged</span>
           </div>
           <div className="max-h-96 overflow-auto rounded-xl border border-border bg-card p-3 font-mono text-xs">
             {result.lines.map((line, i) => (

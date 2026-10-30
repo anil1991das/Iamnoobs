@@ -102,7 +102,7 @@ export default function NotesAppClient() {
           <>
             <input type="text" value={active.title} onChange={(e) => update("title", e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-lg font-semibold" placeholder="Note title" />
             <textarea value={active.content} onChange={(e) => update("content", e.target.value)} className="w-full flex-1 rounded-lg border border-border bg-background px-3 py-2 text-sm min-h-[300px] resize-y" placeholder="Write your note..." />
-            <p className="text-xs text-muted">Last updated: {new Date(active.updatedAt).toLocaleString()}</p>
+            <p className="mb-2 text-sm font-semibold text-foreground">Last updated: {new Date(active.updatedAt).toLocaleString()}</p>
           </>
         ) : <p className="text-sm text-muted text-center py-20">Select or create a note</p>}
       </div>

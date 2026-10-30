@@ -46,15 +46,15 @@ export default function EmiCalculatorClient() {
         <>
           <div className="grid gap-3 sm:grid-cols-3">
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Monthly EMI</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Monthly EMI</p>
               <p className="text-2xl font-bold text-primary">{result.emi.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
             </div>
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Total Interest</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Total Interest</p>
               <p className="text-2xl font-bold text-danger">{result.totalInterest.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
             </div>
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Total Payment</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Total Payment</p>
               <p className="text-2xl font-bold text-foreground">{result.totalPayment.toLocaleString(undefined, { minimumFractionDigits: 2 })}</p>
             </div>
           </div>

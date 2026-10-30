@@ -38,9 +38,9 @@ export default function BoxShadowGeneratorClient() {
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <label className="space-y-1"><span className="text-sm text-muted">Background</span><input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="h-10 w-full cursor-pointer rounded-lg border border-border" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Box Color</span><input type="color" value={boxColor} onChange={(e) => setBoxColor(e.target.value)} className="h-10 w-full cursor-pointer rounded-lg border border-border" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Border Radius</span><input type="range" min={0} max={100} value={borderRadius} onChange={(e) => setBorderRadius(Number(e.target.value))} className="w-full" /><span className="text-xs text-muted">{borderRadius}px</span></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Background</span><input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="h-10 w-full cursor-pointer rounded-lg border border-border" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Box Color</span><input type="color" value={boxColor} onChange={(e) => setBoxColor(e.target.value)} className="h-10 w-full cursor-pointer rounded-lg border border-border" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Border Radius</span><input type="range" min={0} max={100} value={borderRadius} onChange={(e) => setBorderRadius(Number(e.target.value))} className="w-full" /><span className="mb-2 text-sm font-semibold text-foreground">{borderRadius}px</span></label>
       </div>
 
       {shadows.map((s, i) => (
@@ -54,10 +54,10 @@ export default function BoxShadowGeneratorClient() {
           </div>
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
             {([["H-Offset", "hOffset", -50, 50], ["V-Offset", "vOffset", -50, 50], ["Blur", "blur", 0, 100], ["Spread", "spread", -50, 50]] as const).map(([label, key, min, max]) => (
-              <label key={key} className="space-y-1"><span className="text-xs text-muted">{label}: {s[key]}px</span><input type="range" min={min} max={max} value={s[key]} onChange={(e) => updateShadow(i, key, Number(e.target.value))} className="w-full" /></label>
+              <label key={key} className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">{label}: {s[key]}px</span><input type="range" min={min} max={max} value={s[key]} onChange={(e) => updateShadow(i, key, Number(e.target.value))} className="w-full" /></label>
             ))}
-            <label className="space-y-1"><span className="text-xs text-muted">Opacity: {Math.round(s.opacity * 100)}%</span><input type="range" min={0} max={100} value={Math.round(s.opacity * 100)} onChange={(e) => updateShadow(i, "opacity", Number(e.target.value) / 100)} className="w-full" /></label>
-            <label className="space-y-1"><span className="text-xs text-muted">Color</span><input type="color" value={s.color} onChange={(e) => updateShadow(i, "color", e.target.value)} className="h-8 w-full cursor-pointer rounded border border-border" /></label>
+            <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Opacity: {Math.round(s.opacity * 100)}%</span><input type="range" min={0} max={100} value={Math.round(s.opacity * 100)} onChange={(e) => updateShadow(i, "opacity", Number(e.target.value) / 100)} className="w-full" /></label>
+            <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Color</span><input type="color" value={s.color} onChange={(e) => updateShadow(i, "color", e.target.value)} className="h-8 w-full cursor-pointer rounded border border-border" /></label>
           </div>
         </div>
       ))}

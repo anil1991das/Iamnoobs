@@ -24,11 +24,11 @@ export default function GridGeneratorClient() {
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-3">
-        <label className="space-y-1"><span className="text-sm text-muted">Columns: {cols}</span><input type="range" min={1} max={12} value={cols} onChange={(e) => setCols(Number(e.target.value))} className="w-full" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Rows: {rows}</span><input type="range" min={1} max={8} value={rows} onChange={(e) => setRows(Number(e.target.value))} className="w-full" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Gap: {gap}px</span><input type="range" min={0} max={50} value={gap} onChange={(e) => setGap(Number(e.target.value))} className="w-full" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Column Size</span><select value={colTemplate} onChange={(e) => setColTemplate(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"><option value="1fr">1fr</option><option value="auto">auto</option><option value="100px">100px</option><option value="minmax(100px, 1fr)">minmax(100px, 1fr)</option></select></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Row Size</span><select value={rowTemplate} onChange={(e) => setRowTemplate(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"><option value="1fr">1fr</option><option value="auto">auto</option><option value="100px">100px</option><option value="minmax(50px, auto)">minmax(50px, auto)</option></select></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Columns: {cols}</span><input type="range" min={1} max={12} value={cols} onChange={(e) => setCols(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Rows: {rows}</span><input type="range" min={1} max={8} value={rows} onChange={(e) => setRows(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Gap: {gap}px</span><input type="range" min={0} max={50} value={gap} onChange={(e) => setGap(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Column Size</span><select value={colTemplate} onChange={(e) => setColTemplate(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"><option value="1fr">1fr</option><option value="auto">auto</option><option value="100px">100px</option><option value="minmax(100px, 1fr)">minmax(100px, 1fr)</option></select></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Row Size</span><select value={rowTemplate} onChange={(e) => setRowTemplate(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm"><option value="1fr">1fr</option><option value="auto">auto</option><option value="100px">100px</option><option value="minmax(50px, auto)">minmax(50px, auto)</option></select></label>
       </div>
 
       <div className="space-y-2">

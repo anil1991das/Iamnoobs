@@ -43,9 +43,9 @@ export default function QrCodeGeneratorClient() {
       </label>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
-        <label className="space-y-1"><span className="text-sm text-muted">Size: {size}px</span><input type="range" min={128} max={512} step={32} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Foreground</span><input type="color" value={fgColor} onChange={(e) => setFgColor(e.target.value)} className="h-10 w-full cursor-pointer rounded-lg border border-border" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Background</span><input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="h-10 w-full cursor-pointer rounded-lg border border-border" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Size: {size}px</span><input type="range" min={128} max={512} step={32} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Foreground</span><input type="color" value={fgColor} onChange={(e) => setFgColor(e.target.value)} className="h-10 w-full cursor-pointer rounded-lg border border-border" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Background</span><input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="h-10 w-full cursor-pointer rounded-lg border border-border" /></label>
       </div>
 
       {error && <p className="rounded-xl border border-danger bg-danger/10 p-4 text-sm text-danger">{error}</p>}

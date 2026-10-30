@@ -44,7 +44,7 @@ export default function CurrencyConverterClient() {
       </div>
 
       {result && <div className="whitespace-pre-line rounded-xl border border-border bg-card p-4 text-center text-lg font-semibold text-foreground">{result}</div>}
-      <p className="text-xs text-muted">Rates are approximate and may not reflect real-time market rates.</p>
+      <p className="mb-2 text-sm font-semibold text-foreground">Rates are approximate and may not reflect real-time market rates.</p>
     </>
   );
 }

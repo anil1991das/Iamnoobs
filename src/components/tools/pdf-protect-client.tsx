@@ -36,7 +36,7 @@ export default function PdfProtectClient() {
           <input type="text" value={author} onChange={(e) => setAuthor(e.target.value)} placeholder="Author" className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" />
           <input type="text" value={subject} onChange={(e) => setSubject(e.target.value)} placeholder="Subject" className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" />
         </div>
-        <p className="text-xs text-muted">Sets PDF metadata (title, author, subject). For password protection, use dedicated PDF software.</p>
+        <p className="mb-2 text-sm font-semibold text-foreground">Sets PDF metadata (title, author, subject). For password protection, use dedicated PDF software.</p>
       </div>
       <ActionButtons onClear={() => { setFile(null); setTitle(""); setAuthor(""); setSubject(""); }} onProcess={handleProcess} processLabel={processing ? "Processing..." : "Set Metadata"} disabled={!file || processing} />
     </>

@@ -45,10 +45,10 @@ export default function CropImageClient() {
         <>
           <div className="rounded-xl border border-border bg-card p-6 space-y-3">
             <img ref={imgRef} src={image} alt="Source" className="max-h-60 rounded-lg border border-border" />
-            <p className="text-xs text-muted">Original: {imgSize.w}×{imgSize.h}px</p>
+            <p className="mb-2 text-sm font-semibold text-foreground">Original: {imgSize.w}×{imgSize.h}px</p>
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-2">
               {(["x", "y", "w", "h"] as const).map((k) => (
-                <div key={k}><label className="text-xs text-muted">{k === "w" ? "Width" : k === "h" ? "Height" : k.toUpperCase()}</label>
+                <div key={k}><label className="mb-2 text-sm font-semibold text-foreground">{k === "w" ? "Width" : k === "h" ? "Height" : k.toUpperCase()}</label>
                   <input type="number" min="0" max={k === "x" || k === "w" ? imgSize.w : imgSize.h} value={dims[k]} onChange={(e) => setDims({ ...dims, [k]: Number(e.target.value) })} className="w-full rounded-lg border border-border bg-background px-2 py-1 text-sm" /></div>
               ))}
             </div>

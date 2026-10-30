@@ -47,7 +47,7 @@ export default function StopwatchClient() {
           <h4 className="text-sm font-semibold text-foreground">Laps</h4>
           {laps.map((l, i) => (
             <div key={i} className="flex justify-between rounded-lg bg-accent/50 p-2 text-sm">
-              <span className="text-muted">Lap {laps.length - i}</span>
+              <span className="mb-2 text-sm font-semibold text-foreground">Lap {laps.length - i}</span>
               <span className="font-mono font-medium">{format(l)}</span>
               {i < laps.length - 1 && <span className="font-mono text-xs text-muted">+{format(l - laps[i + 1])}</span>}
             </div>

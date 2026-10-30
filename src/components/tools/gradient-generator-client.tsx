@@ -18,19 +18,19 @@ export default function GradientGeneratorClient() {
         <div className="h-40 rounded-xl border border-border" style={{ background: css }} />
         <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div>
-            <label className="text-xs text-muted">Color 1</label>
+            <label className="mb-2 text-sm font-semibold text-foreground">Color 1</label>
             <input type="color" value={color1} onChange={(e) => setColor1(e.target.value)} className="w-full h-10 rounded cursor-pointer" />
           </div>
           <div>
-            <label className="text-xs text-muted">Color 2</label>
+            <label className="mb-2 text-sm font-semibold text-foreground">Color 2</label>
             <input type="color" value={color2} onChange={(e) => setColor2(e.target.value)} className="w-full h-10 rounded cursor-pointer" />
           </div>
           <div>
-            <label className="text-xs text-muted">Angle: {angle}°</label>
+            <label className="mb-2 text-sm font-semibold text-foreground">Angle: {angle}°</label>
             <input type="range" min="0" max="360" value={angle} onChange={(e) => setAngle(Number(e.target.value))} className="w-full" />
           </div>
           <div>
-            <label className="text-xs text-muted">Type</label>
+            <label className="mb-2 text-sm font-semibold text-foreground">Type</label>
             <div className="flex gap-1">
               <button onClick={() => setType("linear")} className={`flex-1 rounded px-2 py-1 text-xs ${type === "linear" ? "bg-primary text-white" : "bg-accent text-foreground"}`}>Linear</button>
               <button onClick={() => setType("radial")} className={`flex-1 rounded px-2 py-1 text-xs ${type === "radial" ? "bg-primary text-white" : "bg-accent text-foreground"}`}>Radial</button>

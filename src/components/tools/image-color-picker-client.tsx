@@ -57,8 +57,8 @@ export default function ImageColorPickerClient() {
         <div className="rounded-xl border border-border bg-card p-6 flex items-center gap-4">
           <div className="w-16 h-16 rounded-lg border border-border" style={{ backgroundColor: color.hex }} />
           <div className="space-y-1">
-            <p className="text-sm"><span className="text-muted">HEX:</span> <code className="font-mono text-primary">{color.hex}</code> <button onClick={() => navigator.clipboard.writeText(color.hex)} className="text-xs text-primary hover:underline ml-2">Copy</button></p>
-            <p className="text-sm"><span className="text-muted">RGB:</span> <code className="font-mono">{color.rgb}</code> <button onClick={() => navigator.clipboard.writeText(color.rgb)} className="text-xs text-primary hover:underline ml-2">Copy</button></p>
+            <p className="text-sm"><span className="mb-2 text-sm font-semibold text-foreground">HEX:</span> <code className="font-mono text-primary">{color.hex}</code> <button onClick={() => navigator.clipboard.writeText(color.hex)} className="text-xs text-primary hover:underline ml-2">Copy</button></p>
+            <p className="text-sm"><span className="mb-2 text-sm font-semibold text-foreground">RGB:</span> <code className="font-mono">{color.rgb}</code> <button onClick={() => navigator.clipboard.writeText(color.rgb)} className="text-xs text-primary hover:underline ml-2">Copy</button></p>
           </div>
         </div>
       )}

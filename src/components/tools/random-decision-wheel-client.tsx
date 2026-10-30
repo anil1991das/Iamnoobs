@@ -73,7 +73,7 @@ export default function RandomDecisionWheelClient() {
           <canvas ref={canvasRef} width={300} height={300} style={{ transform: `rotate(${rotation}deg)`, transition: spinning ? "transform 3s cubic-bezier(0.17,0.67,0.12,0.99)" : "none" }} className="rounded-full" />
         </div>
       </div>
-      {result && <div className="text-center rounded-xl border border-primary bg-primary/10 p-4"><p className="text-sm text-muted">Winner:</p><p className="text-2xl font-bold text-primary">{result}</p></div>}
+      {result && <div className="text-center rounded-xl border border-primary bg-primary/10 p-4"><p className="mb-2 text-sm font-semibold text-foreground">Winner:</p><p className="text-2xl font-bold text-primary">{result}</p></div>}
       <div className="flex justify-center"><button onClick={spin} disabled={spinning || items.length < 2} className="rounded-xl bg-primary px-8 py-3 text-sm font-semibold text-white disabled:opacity-50">{spinning ? "Spinning..." : "Spin!"}</button></div>
       <div className="rounded-xl border border-border bg-card p-4 space-y-2">
         <form onSubmit={(e) => { e.preventDefault(); addItem(); }} className="flex gap-2">

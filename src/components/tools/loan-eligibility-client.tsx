@@ -21,11 +21,11 @@ export default function LoanEligibilityClient() {
         <div><label className="text-sm font-medium text-foreground">Monthly Income (₹)</label>
           <input type="number" value={income} onChange={(e) => { setIncome(e.target.value); setResult(null); }} placeholder="80000" className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" /></div>
         <div className="grid grid-cols-3 gap-3">
-          <div><label className="text-xs text-muted">Existing EMIs (₹)</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Existing EMIs (₹)</label>
             <input type="number" value={existingEmi} onChange={(e) => setExistingEmi(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-          <div><label className="text-xs text-muted">Interest Rate (%)</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Interest Rate (%)</label>
             <input type="number" step="0.1" value={interestRate} onChange={(e) => setInterestRate(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-          <div><label className="text-xs text-muted">Tenure (Years)</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Tenure (Years)</label>
             <input type="number" value={tenure} onChange={(e) => setTenure(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
         </div>
       </div>
@@ -35,9 +35,9 @@ export default function LoanEligibilityClient() {
           <h3 className="text-lg font-semibold text-foreground">Loan Eligibility</h3>
           <div className="grid grid-cols-2 gap-3">
             <div className="rounded-lg bg-primary/10 p-4 text-center"><span className="text-xs text-primary">Max Loan Amount</span><p className="text-2xl font-bold text-primary">₹{result.maxLoanAmount.toLocaleString("en-IN")}</p></div>
-            <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="text-xs text-muted">Max EMI</span><p className="text-xl font-bold">₹{result.maxEmi.toLocaleString("en-IN")}</p></div>
+            <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="mb-2 text-sm font-semibold text-foreground">Max EMI</span><p className="text-xl font-bold">₹{result.maxEmi.toLocaleString("en-IN")}</p></div>
           </div>
-          <p className="text-xs text-muted">Based on 50% FOIR (Fixed Obligation to Income Ratio). Actual eligibility may vary by lender.</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Based on 50% FOIR (Fixed Obligation to Income Ratio). Actual eligibility may vary by lender.</p>
         </div>
       )}
     </>

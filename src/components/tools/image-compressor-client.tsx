@@ -54,9 +54,9 @@ export default function ImageCompressorClient() {
 
       {result && (
         <div className="grid gap-3 sm:grid-cols-3 rounded-xl border border-border bg-card p-4">
-          <div><span className="text-xs text-muted">Original</span><p className="font-semibold text-foreground">{formatFileSize(result.originalSize)}</p></div>
-          <div><span className="text-xs text-muted">Compressed</span><p className="font-semibold text-foreground">{formatFileSize(result.blob.size)}</p></div>
-          <div><span className="text-xs text-muted">Saved</span><p className="font-semibold text-green-600">{Math.round((1 - result.blob.size / result.originalSize) * 100)}%</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Original</span><p className="font-semibold text-foreground">{formatFileSize(result.originalSize)}</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Compressed</span><p className="font-semibold text-foreground">{formatFileSize(result.blob.size)}</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Saved</span><p className="font-semibold text-green-600">{Math.round((1 - result.blob.size / result.originalSize) * 100)}%</p></div>
         </div>
       )}
     </>

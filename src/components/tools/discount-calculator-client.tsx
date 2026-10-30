@@ -60,10 +60,10 @@ export default function DiscountCalculatorClient() {
 
       {result && (
         <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4 rounded-xl border border-border bg-card p-4">
-          <div><span className="text-xs text-muted">Original Price</span><p className="font-semibold text-foreground">{result.originalPrice}</p></div>
-          <div><span className="text-xs text-muted">Discount</span><p className="font-semibold text-danger">-{result.discountAmount} ({result.discountPercent}%)</p></div>
-          <div><span className="text-xs text-muted">Final Price</span><p className="text-lg font-bold text-green-600">{result.finalPrice}</p></div>
-          <div><span className="text-xs text-muted">You Save</span><p className="font-semibold text-primary">{result.discountAmount}</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Original Price</span><p className="font-semibold text-foreground">{result.originalPrice}</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Discount</span><p className="font-semibold text-danger">-{result.discountAmount} ({result.discountPercent}%)</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Final Price</span><p className="text-lg font-bold text-green-600">{result.finalPrice}</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">You Save</span><p className="font-semibold text-primary">{result.discountAmount}</p></div>
         </div>
       )}
 

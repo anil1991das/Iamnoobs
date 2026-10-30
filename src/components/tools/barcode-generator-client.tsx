@@ -74,8 +74,8 @@ export default function BarcodeGeneratorClient() {
       </label>
 
       <div className="grid grid-cols-2 gap-4">
-        <label className="space-y-1"><span className="text-sm text-muted">Bar Width: {barWidth}px</span><input type="range" min={1} max={4} value={barWidth} onChange={(e) => setBarWidth(Number(e.target.value))} className="w-full" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Height: {height}px</span><input type="range" min={50} max={200} value={height} onChange={(e) => setHeight(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Bar Width: {barWidth}px</span><input type="range" min={1} max={4} value={barWidth} onChange={(e) => setBarWidth(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Height: {height}px</span><input type="range" min={50} max={200} value={height} onChange={(e) => setHeight(Number(e.target.value))} className="w-full" /></label>
       </div>
 
       <div className="flex flex-col items-center gap-4">

@@ -44,18 +44,18 @@ export default function TextToSpeechClient() {
       <label className="space-y-1">
         <span className="text-sm font-medium">Text to Speak</span>
         <textarea value={text} onChange={(e) => setText(e.target.value)} rows={5} placeholder="Enter text to convert to speech..." className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" />
-        <p className="text-xs text-muted">{text.length} characters</p>
+        <p className="mb-2 text-sm font-semibold text-foreground">{text.length} characters</p>
       </label>
 
       <div className="grid gap-4 sm:grid-cols-3">
         <label className="space-y-1">
-          <span className="text-sm text-muted">Voice</span>
+          <span className="mb-2 text-sm font-semibold text-foreground">Voice</span>
           <select value={selectedVoice} onChange={(e) => setSelectedVoice(e.target.value)} className="w-full rounded-xl border border-border bg-background px-3 py-2 text-sm">
             {voices.map((v) => <option key={v.name} value={v.name}>{v.name} ({v.lang})</option>)}
           </select>
         </label>
-        <label className="space-y-1"><span className="text-sm text-muted">Rate: {rate}x</span><input type="range" min={0.1} max={3} step={0.1} value={rate} onChange={(e) => setRate(Number(e.target.value))} className="w-full" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Pitch: {pitch}</span><input type="range" min={0} max={2} step={0.1} value={pitch} onChange={(e) => setPitch(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Rate: {rate}x</span><input type="range" min={0.1} max={3} step={0.1} value={rate} onChange={(e) => setRate(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Pitch: {pitch}</span><input type="range" min={0} max={2} step={0.1} value={pitch} onChange={(e) => setPitch(Number(e.target.value))} className="w-full" /></label>
       </div>
 
       <div className="flex gap-2">

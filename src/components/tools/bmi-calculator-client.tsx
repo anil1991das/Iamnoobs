@@ -62,7 +62,7 @@ export default function BmiCalculatorClient() {
 
       {result && (
         <div className="rounded-xl border border-border bg-card p-6 text-center">
-          <p className="text-sm text-muted">Your BMI</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Your BMI</p>
           <p className={`text-5xl font-bold ${result.color}`}>{result.bmi}</p>
           <p className={`mt-2 text-lg font-medium ${result.color}`}>{result.category}</p>
         </div>
@@ -73,7 +73,7 @@ export default function BmiCalculatorClient() {
           <div key={c.label} className="space-y-1 text-center">
             <div className={`h-2 rounded-full ${c.color}`} />
             <p className="text-xs font-medium">{c.label}</p>
-            <p className="text-xs text-muted">{c.range}</p>
+            <p className="mb-2 text-sm font-semibold text-foreground">{c.range}</p>
           </div>
         ))}
       </div>

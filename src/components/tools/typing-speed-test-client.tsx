@@ -63,7 +63,7 @@ export default function TypingSpeedTestClient() {
 
       <div className="rounded-xl border border-border bg-card p-4 font-mono text-sm leading-relaxed">
         {text.split("").map((char, i) => {
-          let color = "text-muted";
+          let color = "mb-2 text-sm font-semibold text-foreground";
           if (i < typed.length) color = typed[i] === char ? "text-green-500" : "text-red-500 bg-red-500/10";
           if (i === typed.length) color = "bg-primary/20 text-foreground";
           return <span key={i} className={color}>{char}</span>;
@@ -76,19 +76,19 @@ export default function TypingSpeedTestClient() {
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <div className="rounded-xl border border-border bg-card p-4 text-center">
-          <p className="text-xs text-muted">WPM</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">WPM</p>
           <p className="text-3xl font-bold text-primary">{wpm}</p>
         </div>
         <div className="rounded-xl border border-border bg-card p-4 text-center">
-          <p className="text-xs text-muted">CPM</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">CPM</p>
           <p className="text-3xl font-bold">{cpm}</p>
         </div>
         <div className="rounded-xl border border-border bg-card p-4 text-center">
-          <p className="text-xs text-muted">Accuracy</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Accuracy</p>
           <p className={`text-3xl font-bold ${accuracy >= 90 ? "text-green-500" : accuracy >= 70 ? "text-yellow-500" : "text-red-500"}`}>{accuracy}%</p>
         </div>
         <div className="rounded-xl border border-border bg-card p-4 text-center">
-          <p className="text-xs text-muted">Time</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Time</p>
           <p className="text-3xl font-bold">{Math.round(timeSec)}s</p>
         </div>
       </div>

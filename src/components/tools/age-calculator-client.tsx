@@ -46,7 +46,7 @@ export default function AgeCalculatorClient() {
 function StatCard({ label, value }: { label: string; value: string }) {
   return (
     <div className="rounded-xl border border-border bg-card p-4">
-      <p className="text-xs text-muted">{label}</p>
+      <p className="mb-2 text-sm font-semibold text-foreground">{label}</p>
       <p className="mt-1 text-lg font-semibold text-foreground">{value}</p>
     </div>
   );

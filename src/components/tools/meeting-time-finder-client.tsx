@@ -40,8 +40,8 @@ export default function MeetingTimeFinderClient() {
     <div className="space-y-4">
       <div className="rounded-xl border border-border bg-card p-4 space-y-3">
         <div className="grid grid-cols-2 gap-3">
-          <div><label className="text-xs text-muted">Meeting Time</label><input type="time" value={baseTime} onChange={(e) => setBaseTime(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-          <div><label className="text-xs text-muted">Your Timezone</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Meeting Time</label><input type="time" value={baseTime} onChange={(e) => setBaseTime(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Your Timezone</label>
             <select value={baseZone} onChange={(e) => setBaseZone(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm">
               {zones.map((z) => <option key={z.tz} value={z.tz}>{z.label}</option>)}
             </select></div>

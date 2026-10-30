@@ -39,12 +39,12 @@ export default function GifMakerClient() {
       {frames.length > 0 && (
         <>
           <div className="flex items-center gap-3">
-            <label className="text-sm text-muted">Delay: {delay}ms</label>
+            <label className="mb-2 text-sm font-semibold text-foreground">Delay: {delay}ms</label>
             <input type="range" min="100" max="2000" step="100" value={delay} onChange={(e) => setDelay(Number(e.target.value))} className="flex-1" />
           </div>
           <div className="flex items-center gap-3">
             <button onClick={togglePlay} className="rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-white hover:bg-primary-hover">{playing ? "Stop" : "Play"}</button>
-            <span className="text-sm text-muted">Frame {currentFrame + 1} of {frames.length}</span>
+            <span className="mb-2 text-sm font-semibold text-foreground">Frame {currentFrame + 1} of {frames.length}</span>
           </div>
           <div className="rounded-xl border border-border p-4 bg-accent/30 flex items-center justify-center">
             <img src={frames[currentFrame]} alt={`Frame ${currentFrame + 1}`} className="max-h-80 rounded" />
@@ -54,7 +54,7 @@ export default function GifMakerClient() {
               <img key={i} src={f} alt={`Thumb ${i}`} onClick={() => setCurrentFrame(i)} className={`w-16 h-16 object-cover rounded cursor-pointer border-2 ${i === currentFrame ? "border-primary" : "border-border"}`} />
             ))}
           </div>
-          <p className="text-xs text-muted">Note: This creates an animated preview. For actual GIF export, a GIF encoding library is needed.</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Note: This creates an animated preview. For actual GIF export, a GIF encoding library is needed.</p>
         </>
       )}
     </div>

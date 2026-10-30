@@ -24,7 +24,7 @@ export default function ImageToBase64Client() {
       <div>
         <label className="mb-1.5 block text-sm font-medium text-foreground">Select Image</label>
         <input type="file" accept="image/*" onChange={(e) => { setFile(e.target.files?.[0] || null); setOutput(""); }} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground file:mr-3 file:rounded-lg file:border-0 file:bg-primary file:px-3 file:py-1 file:text-sm file:font-medium file:text-white" />
-        {file && <p className="mt-1 text-xs text-muted">{file.name} ({formatFileSize(file.size)})</p>}
+        {file && <p className="mb-2 text-sm font-semibold text-foreground">{file.name} ({formatFileSize(file.size)})</p>}
       </div>
 
       <div className="flex flex-wrap gap-3">
@@ -32,7 +32,7 @@ export default function ImageToBase64Client() {
       </div>
 
       <ToolOutput label="Base64 Output" value={output} downloadFilename="image-base64.txt" />
-      {output && <p className="text-xs text-muted">Base64 string length: {output.length.toLocaleString()} characters</p>}
+      {output && <p className="mb-2 text-sm font-semibold text-foreground">Base64 string length: {output.length.toLocaleString()} characters</p>}
     </>
   );
 }

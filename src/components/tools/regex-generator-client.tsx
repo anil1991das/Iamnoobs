@@ -16,7 +16,7 @@ export default function RegexGeneratorClient() {
 
   return (
     <>
-      <p className="text-sm text-muted">Select a common regex pattern to use. Click to view details, or copy directly.</p>
+      <p className="mb-2 text-sm font-semibold text-foreground">Select a common regex pattern to use. Click to view details, or copy directly.</p>
 
       <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-3">
         {commonPatterns.map((p) => (

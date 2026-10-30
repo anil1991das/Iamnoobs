@@ -35,24 +35,24 @@ export default function TwitterCharacterCounterClient() {
           </svg>
         </div>
         <span className={`text-2xl font-bold ${color}`}>{stats.remaining}</span>
-        <span className="text-sm text-muted">characters remaining</span>
+        <span className="mb-2 text-sm font-semibold text-foreground">characters remaining</span>
       </div>
 
       <div className="grid grid-cols-2 gap-4 sm:grid-cols-4">
         <div className="rounded-xl border border-border bg-card p-3 text-center">
-          <p className="text-xs text-muted">Characters</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Characters</p>
           <p className="text-xl font-bold">{stats.effectiveLength}/{stats.maxChars}</p>
         </div>
         <div className="rounded-xl border border-border bg-card p-3 text-center">
-          <p className="text-xs text-muted">Hashtags</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Hashtags</p>
           <p className="text-xl font-bold">{stats.hashtags}</p>
         </div>
         <div className="rounded-xl border border-border bg-card p-3 text-center">
-          <p className="text-xs text-muted">Mentions</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Mentions</p>
           <p className="text-xl font-bold">{stats.mentions}</p>
         </div>
         <div className="rounded-xl border border-border bg-card p-3 text-center">
-          <p className="text-xs text-muted">URLs</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">URLs</p>
           <p className="text-xl font-bold">{stats.urls}</p>
         </div>
       </div>

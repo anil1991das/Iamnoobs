@@ -286,16 +286,16 @@ export const tools: ToolConfig[] = [
   },
 
   // IMAGE TOOLS
-  {
-    slug: "image-compressor",
-    icon: "📦",
-    name: "Image Compressor",
-    description: "Compress images in your browser without uploading",
-    category: "image",
-    metaTitle: "Image Compressor Online - Compress Images Free | iamnoobs",
-    metaDescription: "Compress images directly in your browser without uploading to any server. Free, private, and fast image compression.",
-    keywords: ["image compressor", "compress image", "reduce image size", "image optimization"],
-  },
+  // {
+  //   slug: "image-compressor",
+  //   icon: "📦",
+  //   name: "Image Compressor",
+  //   description: "Compress images in your browser without uploading",
+  //   category: "image",
+  //   metaTitle: "Image Compressor Online - Compress Images Free | iamnoobs",
+  //   metaDescription: "Compress images directly in your browser without uploading to any server. Free, private, and fast image compression.",
+  //   keywords: ["image compressor", "compress image", "reduce image size", "image optimization"],
+  // },
   {
     slug: "jpg-to-png",
     icon: "🖼️",
@@ -358,16 +358,16 @@ export const tools: ToolConfig[] = [
   },
 
   // DOCUMENT TOOLS
-  {
-    slug: "pdf-to-word",
-    icon: "📄",
-    name: "PDF to Word",
-    description: "Convert PDF documents to editable Word format (basic support)",
-    category: "document",
-    metaTitle: "PDF to Word Converter Online - Free Tool | iamnoobs",
-    metaDescription: "Convert PDF documents to Word format. Basic client-side PDF text extraction and conversion.",
-    keywords: ["pdf to word", "pdf to docx", "convert pdf to word", "pdf converter"],
-  },
+  // {
+  //   slug: "pdf-to-word",
+  //   icon: "📄",
+  //   name: "PDF to Word",
+  //   description: "Convert PDF documents to editable Word format (basic support)",
+  //   category: "document",
+  //   metaTitle: "PDF to Word Converter Online - Free Tool | iamnoobs",
+  //   metaDescription: "Convert PDF documents to Word format. Basic client-side PDF text extraction and conversion.",
+  //   keywords: ["pdf to word", "pdf to docx", "convert pdf to word", "pdf converter"],
+  // },
   {
     slug: "word-to-pdf",
     icon: "📝",

@@ -25,13 +25,13 @@ export default function FaviconGeneratorClient() {
     <div className="rounded-xl border border-border bg-card p-6 space-y-4">
       <h3 className="text-lg font-semibold text-foreground">Favicon Generator</h3>
       <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
-        <div><label className="text-xs text-muted">Text (1-2 chars)</label>
+        <div><label className="mb-2 text-sm font-semibold text-foreground">Text (1-2 chars)</label>
           <input type="text" maxLength={2} value={text} onChange={(e) => setText(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-        <div><label className="text-xs text-muted">Background</label>
+        <div><label className="mb-2 text-sm font-semibold text-foreground">Background</label>
           <input type="color" value={bg} onChange={(e) => setBg(e.target.value)} className="w-full h-10 rounded cursor-pointer" /></div>
-        <div><label className="text-xs text-muted">Text Color</label>
+        <div><label className="mb-2 text-sm font-semibold text-foreground">Text Color</label>
           <input type="color" value={fg} onChange={(e) => setFg(e.target.value)} className="w-full h-10 rounded cursor-pointer" /></div>
-        <div><label className="text-xs text-muted">Size: {size}px</label>
+        <div><label className="mb-2 text-sm font-semibold text-foreground">Size: {size}px</label>
           <input type="range" min="16" max="256" step="16" value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full" /></div>
       </div>
       <div className="flex gap-3">
@@ -41,7 +41,7 @@ export default function FaviconGeneratorClient() {
       {preview && (
         <div className="flex items-center gap-4">
           <img src={preview} alt="Favicon preview" className="border border-border rounded" style={{ width: size, height: size }} />
-          <span className="text-sm text-muted">{size}×{size}px</span>
+          <span className="mb-2 text-sm font-semibold text-foreground">{size}×{size}px</span>
         </div>
       )}
     </div>

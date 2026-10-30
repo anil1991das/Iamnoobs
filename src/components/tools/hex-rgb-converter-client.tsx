@@ -41,7 +41,7 @@ export default function HexRgbConverterClient() {
                 { label: "G", value: g, set: (v: number) => updateFromRgb(r, v, b) },
                 { label: "B", value: b, set: (v: number) => updateFromRgb(r, g, v) }].map((c) => (
                 <div key={c.label}>
-                  <label className="text-xs text-muted">{c.label}</label>
+                  <label className="mb-2 text-sm font-semibold text-foreground">{c.label}</label>
                   <input type="number" min="0" max="255" value={c.value} onChange={(e) => c.set(Number(e.target.value))} className="w-full rounded-lg border border-border bg-background px-2 py-1 text-sm" />
                 </div>
               ))}
@@ -49,9 +49,9 @@ export default function HexRgbConverterClient() {
           </div>
         </div>
         <div className="grid grid-cols-3 gap-3">
-          <div className="rounded-lg bg-accent/50 p-3 text-center"><span className="text-xs text-muted">HSL</span><p className="font-mono text-sm">{hsl.h}°, {hsl.s}%, {hsl.l}%</p></div>
-          <div className="rounded-lg bg-accent/50 p-3 text-center"><span className="text-xs text-muted">RGB</span><p className="font-mono text-sm">{r}, {g}, {b}</p></div>
-          <div className="rounded-lg bg-accent/50 p-3 text-center"><span className="text-xs text-muted">HEX</span><p className="font-mono text-sm">{hex}</p></div>
+          <div className="rounded-lg bg-accent/50 p-3 text-center"><span className="mb-2 text-sm font-semibold text-foreground">HSL</span><p className="font-mono text-sm">{hsl.h}°, {hsl.s}%, {hsl.l}%</p></div>
+          <div className="rounded-lg bg-accent/50 p-3 text-center"><span className="mb-2 text-sm font-semibold text-foreground">RGB</span><p className="font-mono text-sm">{r}, {g}, {b}</p></div>
+          <div className="rounded-lg bg-accent/50 p-3 text-center"><span className="mb-2 text-sm font-semibold text-foreground">HEX</span><p className="font-mono text-sm">{hex}</p></div>
         </div>
       </div>
       <ActionButtons onClear={() => updateFromHex("#000000")} />

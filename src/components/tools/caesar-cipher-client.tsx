@@ -24,7 +24,7 @@ export default function CaesarCipherClient() {
       </label>
 
       <label className="space-y-1">
-        <span className="text-sm text-muted">Shift: {shift}</span>
+        <span className="mb-2 text-sm font-semibold text-foreground">Shift: {shift}</span>
         <input type="range" min={1} max={25} value={shift} onChange={(e) => setShift(Number(e.target.value))} className="w-full" />
       </label>
 

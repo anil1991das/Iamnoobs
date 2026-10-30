@@ -46,13 +46,13 @@ export default function PdfSplitterClient() {
       <div>
         <label className="mb-1.5 block text-sm font-medium text-foreground">Select PDF File</label>
         <input type="file" accept=".pdf" onChange={(e) => handleFileChange(e.target.files?.[0] || null)} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground file:mr-3 file:rounded-lg file:border-0 file:bg-primary file:px-3 file:py-1 file:text-sm file:font-medium file:text-white" />
-        {pageCount > 0 && <p className="mt-1 text-xs text-muted">Total pages: {pageCount}</p>}
+        {pageCount > 0 && <p className="mb-2 text-sm font-semibold text-foreground">Total pages: {pageCount}</p>}
       </div>
 
       <div>
         <label className="mb-1.5 block text-sm font-medium text-foreground">Page Ranges</label>
-        <input type="text" value={rangeText} onChange={(e) => setRangeText(e.target.value)} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground placeholder-muted focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" placeholder="e.g., 1-3, 5-7, 10-10" />
-        <p className="mt-1 text-xs text-muted">Separate ranges with commas. Each range creates a separate PDF.</p>
+        <input type="text" value={rangeText} onChange={(e) => setRangeText(e.target.value)} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary" placeholder="e.g., 1-3, 5-7, 10-10" />
+        <p className="mb-2 text-sm font-semibold text-foreground">Separate ranges with commas. Each range creates a separate PDF.</p>
       </div>
 
       {error && <div className="rounded-xl border border-danger bg-danger/10 p-4 text-sm text-danger">{error}</div>}

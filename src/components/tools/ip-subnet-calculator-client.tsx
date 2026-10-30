@@ -54,7 +54,7 @@ export default function IpSubnetCalculatorClient() {
           <div className="overflow-hidden rounded-xl border border-border">
             {fields.map(([label, value], i) => (
               <div key={label} className={`flex justify-between px-4 py-3 text-sm ${i % 2 ? "bg-card" : "bg-background"}`}>
-                <span className="text-muted">{label}</span>
+                <span className="mb-2 text-sm font-semibold text-foreground">{label}</span>
                 <span className="font-mono font-medium">{value}</span>
               </div>
             ))}

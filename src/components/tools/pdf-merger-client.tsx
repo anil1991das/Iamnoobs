@@ -34,7 +34,7 @@ export default function PdfMergerClient() {
         <div className="rounded-xl border border-border bg-card p-3 text-sm">
           <p className="mb-2 font-medium text-foreground">{files.length} file(s) selected:</p>
           {files.map((f, i) => (
-            <p key={i} className="text-xs text-muted">{f.name} ({formatBytes(f.size)})</p>
+            <p key={i} className="mb-2 text-sm font-semibold text-foreground">{f.name} ({formatBytes(f.size)})</p>
           ))}
         </div>
       )}

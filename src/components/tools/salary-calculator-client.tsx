@@ -30,7 +30,7 @@ export default function SalaryCalculatorClient() {
               { label: "Employer PF", value: result.employerPf },
             ].map((item) => (
               <div key={item.label} className="flex justify-between rounded-lg bg-accent/30 p-3">
-                <span className="text-sm text-muted">{item.label}</span>
+                <span className="mb-2 text-sm font-semibold text-foreground">{item.label}</span>
                 <span className="text-sm font-medium">{fmt(item.value)}</span>
               </div>
             ))}

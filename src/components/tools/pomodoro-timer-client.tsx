@@ -61,9 +61,9 @@ export default function PomodoroTimerClient() {
       </div>
       {!running && (
         <div className="grid grid-cols-3 gap-3 w-full max-w-md">
-          <div><label className="text-xs text-muted">Work (min)</label><input type="number" value={workMin} onChange={(e) => { const v = Number(e.target.value); setWorkMin(v); if (phase === "work") setSeconds(v * 60); }} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-center" /></div>
-          <div><label className="text-xs text-muted">Break (min)</label><input type="number" value={breakMin} onChange={(e) => { const v = Number(e.target.value); setBreakMin(v); if (phase === "break") setSeconds(v * 60); }} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-center" /></div>
-          <div><label className="text-xs text-muted">Long Break</label><input type="number" value={longBreakMin} onChange={(e) => { const v = Number(e.target.value); setLongBreakMin(v); if (phase === "longBreak") setSeconds(v * 60); }} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-center" /></div>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Work (min)</label><input type="number" value={workMin} onChange={(e) => { const v = Number(e.target.value); setWorkMin(v); if (phase === "work") setSeconds(v * 60); }} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-center" /></div>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Break (min)</label><input type="number" value={breakMin} onChange={(e) => { const v = Number(e.target.value); setBreakMin(v); if (phase === "break") setSeconds(v * 60); }} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-center" /></div>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Long Break</label><input type="number" value={longBreakMin} onChange={(e) => { const v = Number(e.target.value); setLongBreakMin(v); if (phase === "longBreak") setSeconds(v * 60); }} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm text-center" /></div>
         </div>
       )}
     </div>

@@ -52,7 +52,7 @@ export default function NumberBaseConverterClient() {
           ))}
           {parsed >= 0 && parsed <= 1114111 && (
             <div className="rounded-xl border border-border bg-card p-4">
-              <p className="text-sm text-muted">ASCII / Unicode: <span className="font-mono text-foreground">{String.fromCodePoint(parsed)}</span> (U+{parsed.toString(16).toUpperCase().padStart(4, "0")})</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">ASCII / Unicode: <span className="font-mono text-foreground">{String.fromCodePoint(parsed)}</span> (U+{parsed.toString(16).toUpperCase().padStart(4, "0")})</p>
             </div>
           )}
         </div>

@@ -43,7 +43,7 @@ export default function CronGeneratorClient() {
             { label: "Month", value: month, set: setMonth, hint: "1-12" },
             { label: "Weekday", value: weekday, set: setWeekday, hint: "0-6" },
           ].map((f) => (
-            <div key={f.label}><label className="text-xs text-muted">{f.label} ({f.hint})</label>
+            <div key={f.label}><label className="mb-2 text-sm font-semibold text-foreground">{f.label} ({f.hint})</label>
               <input type="text" value={f.value} onChange={(e) => f.set(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm font-mono text-center" /></div>
           ))}
         </div>

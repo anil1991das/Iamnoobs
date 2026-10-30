@@ -25,7 +25,7 @@ export default function IpLookupClient() {
             <p className="text-3xl font-bold text-primary font-mono">{ip}</p>
           </div>
           <button onClick={() => navigator.clipboard.writeText(ip)} className="rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-white transition-colors hover:bg-primary-hover">Copy IP</button>
-          <p className="text-xs text-muted">Note: This is your public IP as seen by external services. For detailed geolocation, check an IP geolocation service.</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Note: This is your public IP as seen by external services. For detailed geolocation, check an IP geolocation service.</p>
         </div>
       )}
     </div>

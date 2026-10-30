@@ -25,13 +25,13 @@ export default function YoutubeThumbnailPreviewClient() {
     <div className="space-y-6">
       <label className="space-y-1">
         <span className="text-sm font-medium">Upload Thumbnail (recommended: 1280×720)</span>
-        <input type="file" accept="image/*" onChange={handleFile} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" />
+        <input type="file" accept="image/*" onChange={handleFile} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground file:mr-3 file:rounded-lg file:border-0 file:bg-primary file:px-3 file:py-1 file:text-sm file:font-medium file:text-white" />
       </label>
 
       <div className="grid gap-4 sm:grid-cols-3">
-        <label className="space-y-1"><span className="text-sm text-muted">Video Title</span><input value={title} onChange={(e) => setTitle(e.target.value)} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Channel Name</span><input value={channel} onChange={(e) => setChannel(e.target.value)} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" /></label>
-        <label className="space-y-1"><span className="text-sm text-muted">Views</span><input value={views} onChange={(e) => setViews(e.target.value)} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Video Title</span><input value={title} onChange={(e) => setTitle(e.target.value)} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Channel Name</span><input value={channel} onChange={(e) => setChannel(e.target.value)} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Views</span><input value={views} onChange={(e) => setViews(e.target.value)} className="w-full rounded-xl border border-border bg-background px-4 py-3 text-sm" /></label>
       </div>
 
       <div className="space-y-4">
@@ -44,8 +44,8 @@ export default function YoutubeThumbnailPreviewClient() {
             <div className="h-9 w-9 flex-shrink-0 rounded-full bg-accent" />
             <div>
               <p className="text-sm font-medium leading-tight line-clamp-2">{title}</p>
-              <p className="text-xs text-muted">{channel}</p>
-              <p className="text-xs text-muted">{views} • 1 hour ago</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">{channel}</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">{views} • 1 hour ago</p>
             </div>
           </div>
         </div>

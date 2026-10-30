@@ -92,7 +92,7 @@ export default function TodoListClient() {
             <button key={f} onClick={() => setFilter(f)} className={`rounded-lg px-3 py-1.5 text-xs font-medium capitalize ${filter === f ? "bg-primary text-white" : "bg-accent text-foreground"}`}>{f}</button>
           ))}
         </div>
-        <span className="text-xs text-muted">{doneCount}/{todos.length} done</span>
+        <span className="mb-2 text-sm font-semibold text-foreground">{doneCount}/{todos.length} done</span>
         {doneCount > 0 && <button onClick={clearDone} className="text-xs text-danger hover:underline">Clear completed</button>}
       </div>
       <div className="space-y-2">

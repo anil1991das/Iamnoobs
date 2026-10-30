@@ -50,7 +50,7 @@ export default function ColorConverterClient() {
               {[{ label: "R", value: r, set: (v: number) => updateFromRgb(v, g, b), max: 255 },
                 { label: "G", value: g, set: (v: number) => updateFromRgb(r, v, b), max: 255 },
                 { label: "B", value: b, set: (v: number) => updateFromRgb(r, g, v), max: 255 }].map((c) => (
-                <div key={c.label}><label className="text-xs text-muted">{c.label}</label>
+                <div key={c.label}><label className="mb-2 text-sm font-semibold text-foreground">{c.label}</label>
                   <input type="number" value={c.value} min={0} max={c.max} onChange={(e) => c.set(Number(e.target.value))} className="w-full rounded-lg border border-border bg-background px-2 py-2 text-sm text-center" /></div>
               ))}
             </div>
@@ -62,7 +62,7 @@ export default function ColorConverterClient() {
               {[{ label: "H", value: h, set: (v: number) => updateFromHsl(v, s, l), max: 360 },
                 { label: "S", value: s, set: (v: number) => updateFromHsl(h, v, l), max: 100 },
                 { label: "L", value: l, set: (v: number) => updateFromHsl(h, s, v), max: 100 }].map((c) => (
-                <div key={c.label}><label className="text-xs text-muted">{c.label}</label>
+                <div key={c.label}><label className="mb-2 text-sm font-semibold text-foreground">{c.label}</label>
                   <input type="number" value={c.value} min={0} max={c.max} onChange={(e) => c.set(Number(e.target.value))} className="w-full rounded-lg border border-border bg-background px-2 py-2 text-sm text-center" /></div>
               ))}
             </div>

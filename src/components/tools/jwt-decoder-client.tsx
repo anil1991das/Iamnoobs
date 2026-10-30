@@ -40,12 +40,12 @@ export default function JwtDecoderClient() {
             <pre className="overflow-auto rounded-xl border border-border bg-card p-3 text-xs text-foreground">{result.payload}</pre>
           </div>
           <div className="flex flex-wrap gap-4 text-sm">
-            {result.issuedAt && <span className="text-muted">Issued: {result.issuedAt}</span>}
+            {result.issuedAt && <span className="mb-2 text-sm font-semibold text-foreground">Issued: {result.issuedAt}</span>}
             {result.expiresAt && <span className={result.isExpired ? "text-danger" : "text-green-600"}>Expires: {result.expiresAt} {result.isExpired ? "(EXPIRED)" : "(Valid)"}</span>}
           </div>
           <div>
             <h3 className="mb-2 text-sm font-semibold text-foreground">Signature</h3>
-            <code className="break-all text-xs text-muted">{result.signature}</code>
+            <code className="mb-2 text-sm font-semibold text-foreground">{result.signature}</code>
           </div>
         </div>
       )}

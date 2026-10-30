@@ -28,7 +28,7 @@ export default function HttpHeaderViewerClient() {
           {Object.entries(commonRequestHeaders).map(([header, desc]) => (
             <div key={header} className="flex items-start gap-3 rounded-lg bg-accent/50 p-3">
               <code className="min-w-[200px] text-sm font-medium text-primary">{header}</code>
-              <span className="text-sm text-muted">{desc}</span>
+              <span className="mb-2 text-sm font-semibold text-foreground">{desc}</span>
             </div>
           ))}
         </div>
@@ -40,7 +40,7 @@ export default function HttpHeaderViewerClient() {
           {Object.entries(commonResponseHeaders).map(([header, desc]) => (
             <div key={header} className="flex items-start gap-3 rounded-lg bg-accent/50 p-3">
               <code className="min-w-[200px] text-sm font-medium text-primary">{header}</code>
-              <span className="text-sm text-muted">{desc}</span>
+              <span className="mb-2 text-sm font-semibold text-foreground">{desc}</span>
             </div>
           ))}
         </div>
@@ -51,7 +51,7 @@ export default function HttpHeaderViewerClient() {
           <h3 className="text-lg font-semibold text-foreground">HTTP Status Codes</h3>
           <div className="flex gap-2 items-center">
             <input type="text" value={statusCode} onChange={(e) => setStatusCode(e.target.value)} placeholder="Enter status code..." className="w-full max-w-[200px] rounded-xl border border-border bg-background px-4 py-2.5 text-sm" />
-            {statusCode && <span className="text-sm text-muted">{getStatusDescription(parseInt(statusCode)) || "Unknown status code"}</span>}
+            {statusCode && <span className="mb-2 text-sm font-semibold text-foreground">{getStatusDescription(parseInt(statusCode)) || "Unknown status code"}</span>}
           </div>
           <ToolOutput label="All Status Codes" value={Object.entries(httpStatusCodes).map(([code, desc]) => `${code}: ${desc}`).join("\n")} />
         </div>

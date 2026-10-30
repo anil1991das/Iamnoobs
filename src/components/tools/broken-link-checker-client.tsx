@@ -5,7 +5,7 @@ export default function BrokenLinkCheckerClient() {
     <div className="space-y-4">
       <div className="rounded-xl border border-border bg-card p-6 space-y-4">
         <h3 className="text-lg font-semibold text-foreground">Broken Link Checker</h3>
-        <p className="text-sm text-muted">Checking for broken links requires server-side crawling which isn&apos;t possible in a static site. Use these free tools instead:</p>
+        <p className="mb-2 text-sm font-semibold text-foreground">Checking for broken links requires server-side crawling which isn&apos;t possible in a static site. Use these free tools instead:</p>
         <div className="grid gap-3">
           {[
             { name: "Dead Link Checker", url: "https://www.deadlinkchecker.com/" , desc: "Free online broken link checker" },
@@ -14,7 +14,7 @@ export default function BrokenLinkCheckerClient() {
             { name: "Google Search Console", url: "https://search.google.com/search-console", desc: "Monitor crawl errors for your site" },
           ].map((tool) => (
             <a key={tool.name} href={tool.url} target="_blank" rel="noopener noreferrer" className="flex items-center justify-between rounded-lg border border-border p-4 hover:bg-accent/50 transition-colors">
-              <div><p className="font-medium text-foreground">{tool.name}</p><p className="text-xs text-muted">{tool.desc}</p></div>
+              <div><p className="font-medium text-foreground">{tool.name}</p><p className="mb-2 text-sm font-semibold text-foreground">{tool.desc}</p></div>
               <span className="text-primary text-sm">Open →</span>
             </a>
           ))}

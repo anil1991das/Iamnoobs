@@ -29,7 +29,7 @@ export default function PdfCompressorClient() {
       <div>
         <label className="mb-1.5 block text-sm font-medium text-foreground">Select PDF File</label>
         <input type="file" accept=".pdf" onChange={(e) => { setFile(e.target.files?.[0] || null); setResult(null); }} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground file:mr-3 file:rounded-lg file:border-0 file:bg-primary file:px-3 file:py-1 file:text-sm file:font-medium file:text-white" />
-        {file && <p className="mt-1 text-xs text-muted">{file.name} ({formatBytes(file.size)})</p>}
+        {file && <p className="mb-2 text-sm font-semibold text-foreground">{file.name} ({formatBytes(file.size)})</p>}
       </div>
 
       {error && <div className="rounded-xl border border-danger bg-danger/10 p-4 text-sm text-danger">{error}</div>}
@@ -41,9 +41,9 @@ export default function PdfCompressorClient() {
 
       {result && (
         <div className="grid gap-3 sm:grid-cols-3 rounded-xl border border-border bg-card p-4">
-          <div><span className="text-xs text-muted">Original</span><p className="font-semibold text-foreground">{formatBytes(result.originalSize)}</p></div>
-          <div><span className="text-xs text-muted">Compressed</span><p className="font-semibold text-foreground">{formatBytes(result.data.length)}</p></div>
-          <div><span className="text-xs text-muted">Reduction</span><p className="font-semibold text-green-600">{Math.max(0, Math.round((1 - result.data.length / result.originalSize) * 100))}%</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Original</span><p className="font-semibold text-foreground">{formatBytes(result.originalSize)}</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Compressed</span><p className="font-semibold text-foreground">{formatBytes(result.data.length)}</p></div>
+          <div><span className="mb-2 text-sm font-semibold text-foreground">Reduction</span><p className="font-semibold text-green-600">{Math.max(0, Math.round((1 - result.data.length / result.originalSize) * 100))}%</p></div>
         </div>
       )}
     </>

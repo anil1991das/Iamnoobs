@@ -23,9 +23,9 @@ export default function FreelanceRateClient() {
         <div><label className="text-sm font-medium text-foreground">Annual Savings Goal (₹)</label>
           <input type="number" value={savings} onChange={(e) => { setSavings(e.target.value); setResult(null); }} placeholder="200000" className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" /></div>
         <div className="grid grid-cols-2 gap-3">
-          <div><label className="text-xs text-muted">Billable Hours/Week</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Billable Hours/Week</label>
             <input type="number" value={hours} onChange={(e) => setHours(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-          <div><label className="text-xs text-muted">Weeks Off/Year</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Weeks Off/Year</label>
             <input type="number" value={weeksOff} onChange={(e) => setWeeksOff(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
         </div>
       </div>
@@ -33,11 +33,11 @@ export default function FreelanceRateClient() {
       {result && (
         <div className="rounded-xl border border-border bg-card p-6 grid grid-cols-3 gap-3">
           <div className="rounded-lg bg-primary/10 p-4 text-center"><span className="text-xs text-primary">Hourly Rate</span><p className="text-2xl font-bold text-primary">₹{result.hourlyRate.toLocaleString("en-IN")}</p></div>
-          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="text-xs text-muted">Daily Rate (8h)</span><p className="text-xl font-bold">₹{result.dailyRate.toLocaleString("en-IN")}</p></div>
-          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="text-xs text-muted">Monthly Target</span><p className="text-xl font-bold">₹{result.monthlyTarget.toLocaleString("en-IN")}</p></div>
+          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="mb-2 text-sm font-semibold text-foreground">Daily Rate (8h)</span><p className="text-xl font-bold">₹{result.dailyRate.toLocaleString("en-IN")}</p></div>
+          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="mb-2 text-sm font-semibold text-foreground">Monthly Target</span><p className="text-xl font-bold">₹{result.monthlyTarget.toLocaleString("en-IN")}</p></div>
         </div>
       )}
-      <p className="text-xs text-muted">Includes 30% buffer for taxes. Adjust based on your actual tax situation.</p>
+      <p className="mb-2 text-sm font-semibold text-foreground">Includes 30% buffer for taxes. Adjust based on your actual tax situation.</p>
     </>
   );
 }

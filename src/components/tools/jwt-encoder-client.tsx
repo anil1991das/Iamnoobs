@@ -41,7 +41,7 @@ export default function JwtEncoderClient() {
         <ActionButtons onClear={() => { setOutput(""); setError(""); }} />
       </div>
 
-      <p className="text-xs text-muted">Note: This generates an unsigned JWT for preview. Do not use in production without proper signing.</p>
+      <p className="mb-2 text-sm font-semibold text-foreground">Note: This generates an unsigned JWT for preview. Do not use in production without proper signing.</p>
 
       <ToolOutput label="JWT Token (Unsigned)" value={output} downloadFilename="jwt-token.txt" />
     </>

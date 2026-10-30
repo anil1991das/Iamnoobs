@@ -54,11 +54,11 @@ export default function ChmodCalculatorClient() {
 
       <div className="grid grid-cols-2 gap-4">
         <div className="rounded-xl border border-border bg-card p-4 text-center">
-          <p className="text-xs text-muted">Numeric</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Numeric</p>
           <p className="font-mono text-3xl font-bold text-primary">{result.numeric}</p>
         </div>
         <div className="rounded-xl border border-border bg-card p-4 text-center">
-          <p className="text-xs text-muted">Symbolic</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Symbolic</p>
           <p className="font-mono text-3xl font-bold">{result.symbolic}</p>
         </div>
       </div>

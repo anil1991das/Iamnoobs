@@ -67,9 +67,9 @@ export default function InvoiceGeneratorClient() {
       </div>
       <div className="rounded-xl border border-border bg-card p-4 space-y-3">
         <div className="grid grid-cols-3 gap-3">
-          <div><label className="text-xs text-muted">Invoice #</label><input type="text" value={data.invoiceNumber} onChange={(e) => setData({ ...data, invoiceNumber: e.target.value })} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-          <div><label className="text-xs text-muted">Date</label><input type="date" value={data.date} onChange={(e) => setData({ ...data, date: e.target.value })} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-          <div><label className="text-xs text-muted">Due Date</label><input type="date" value={data.dueDate} onChange={(e) => setData({ ...data, dueDate: e.target.value })} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Invoice #</label><input type="text" value={data.invoiceNumber} onChange={(e) => setData({ ...data, invoiceNumber: e.target.value })} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Date</label><input type="date" value={data.date} onChange={(e) => setData({ ...data, date: e.target.value })} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Due Date</label><input type="date" value={data.dueDate} onChange={(e) => setData({ ...data, dueDate: e.target.value })} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
         </div>
         <h4 className="font-semibold text-sm mt-4">Items</h4>
         {data.items.map((item, i) => (
@@ -83,7 +83,7 @@ export default function InvoiceGeneratorClient() {
         ))}
         <button onClick={addItem} className="text-sm text-primary hover:underline">+ Add Item</button>
         <div className="flex gap-3 items-center">
-          <label className="text-xs text-muted">GST Rate:</label>
+          <label className="mb-2 text-sm font-semibold text-foreground">GST Rate:</label>
           {[0, 5, 12, 18, 28].map((r) => (
             <button key={r} onClick={() => setData({ ...data, gstRate: r })} className={`rounded px-2 py-1 text-xs ${data.gstRate === r ? "bg-primary text-white" : "bg-accent text-foreground"}`}>{r}%</button>
           ))}

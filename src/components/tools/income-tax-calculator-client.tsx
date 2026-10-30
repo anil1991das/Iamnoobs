@@ -33,17 +33,17 @@ export default function IncomeTaxCalculatorClient() {
         <div className="rounded-xl border border-border bg-card p-6 space-y-4">
           <h3 className="text-lg font-semibold text-foreground">Tax Calculation ({result.regime === "new" ? "New" : "Old"} Regime)</h3>
           <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
-            <div className="rounded-lg bg-accent/50 p-3"><span className="text-xs text-muted">Taxable Income</span><p className="text-lg font-bold">₹{result.taxableIncome.toLocaleString("en-IN")}</p></div>
-            <div className="rounded-lg bg-accent/50 p-3"><span className="text-xs text-muted">Tax</span><p className="text-lg font-bold">₹{result.tax.toLocaleString("en-IN")}</p></div>
-            <div className="rounded-lg bg-accent/50 p-3"><span className="text-xs text-muted">Cess (4%)</span><p className="text-lg font-bold">₹{result.cess.toLocaleString("en-IN")}</p></div>
+            <div className="rounded-lg bg-accent/50 p-3"><span className="mb-2 text-sm font-semibold text-foreground">Taxable Income</span><p className="text-lg font-bold">₹{result.taxableIncome.toLocaleString("en-IN")}</p></div>
+            <div className="rounded-lg bg-accent/50 p-3"><span className="mb-2 text-sm font-semibold text-foreground">Tax</span><p className="text-lg font-bold">₹{result.tax.toLocaleString("en-IN")}</p></div>
+            <div className="rounded-lg bg-accent/50 p-3"><span className="mb-2 text-sm font-semibold text-foreground">Cess (4%)</span><p className="text-lg font-bold">₹{result.cess.toLocaleString("en-IN")}</p></div>
             <div className="rounded-lg bg-primary/10 p-3"><span className="text-xs text-primary">Total Tax</span><p className="text-xl font-bold text-primary">₹{result.totalTax.toLocaleString("en-IN")}</p></div>
-            <div className="rounded-lg bg-accent/50 p-3"><span className="text-xs text-muted">Effective Rate</span><p className="text-lg font-bold">{result.effectiveRate}%</p></div>
+            <div className="rounded-lg bg-accent/50 p-3"><span className="mb-2 text-sm font-semibold text-foreground">Effective Rate</span><p className="text-lg font-bold">{result.effectiveRate}%</p></div>
           </div>
           <div className="space-y-1">
             <h4 className="text-sm font-semibold">Slab Breakdown</h4>
             {result.slabs.map((s, i) => (
               <div key={i} className="flex justify-between text-sm bg-accent/30 rounded-lg p-2">
-                <span className="text-muted">{s.range} @ {s.rate}%</span>
+                <span className="mb-2 text-sm font-semibold text-foreground">{s.range} @ {s.rate}%</span>
                 <span className="font-medium">₹{s.tax.toLocaleString("en-IN")}</span>
               </div>
             ))}

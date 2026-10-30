@@ -35,7 +35,7 @@ export default function FileHashCheckerClient() {
     <>
       <div className="rounded-xl border border-border bg-card p-6 space-y-4">
         <label className="block text-sm font-medium text-foreground">Select a file</label>
-        <input type="file" onChange={(e) => { setFile(e.target.files?.[0] || null); setOutput(""); }} className="text-sm" />
+        <input type="file" onChange={(e) => { setFile(e.target.files?.[0] || null); setOutput(""); }} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground file:mr-3 file:rounded-lg file:border-0 file:bg-primary file:px-3 file:py-1 file:text-sm file:font-medium file:text-white" />
       </div>
       <div className="rounded-xl border border-border bg-card p-6 space-y-2">
         <label className="block text-sm font-medium text-foreground">Hash to verify (optional)</label>

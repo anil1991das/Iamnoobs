@@ -47,20 +47,20 @@ export default function GraphqlTesterClient() {
           <input type="text" value={endpoint} onChange={(e) => setEndpoint(e.target.value)} placeholder="https://api.example.com/graphql" className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" /></div>
         <div><label className="text-sm font-medium text-foreground">Query</label>
           <textarea value={query} onChange={(e) => setQuery(e.target.value)} rows={8} className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm font-mono" /></div>
-        <div><label className="text-xs text-muted">Variables (JSON, optional)</label>
+        <div><label className="mb-2 text-sm font-semibold text-foreground">Variables (JSON, optional)</label>
           <textarea value={variables} onChange={(e) => setVariables(e.target.value)} rows={3} placeholder='{"id": "1"}' className="w-full rounded-lg border border-border bg-background px-3 py-2 text-xs font-mono" /></div>
-        <div><label className="text-xs text-muted">Headers (one per line)</label>
+        <div><label className="mb-2 text-sm font-semibold text-foreground">Headers (one per line)</label>
           <textarea value={headerStr} onChange={(e) => setHeaderStr(e.target.value)} rows={2} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-xs font-mono" /></div>
         <button onClick={handleSend} disabled={loading || !endpoint} className="rounded-xl bg-primary px-6 py-2.5 text-sm font-semibold text-white disabled:opacity-50">{loading ? "Sending..." : "Execute Query"}</button>
       </div>
       {error && <div className="rounded-xl border border-danger bg-danger/10 p-4 text-sm text-danger">{error}</div>}
       {response && (
         <div className="rounded-xl border border-border bg-card p-4">
-          <div className="flex items-center gap-2 mb-2"><span className="text-xs text-muted">{time}ms</span></div>
+          <div className="flex items-center gap-2 mb-2"><span className="mb-2 text-sm font-semibold text-foreground">{time}ms</span></div>
           <pre className="rounded-lg bg-accent/30 p-3 text-xs font-mono max-h-96 overflow-auto whitespace-pre-wrap">{response}</pre>
         </div>
       )}
-      <p className="text-xs text-muted">Requests are made from your browser. CORS restrictions may apply.</p>
+      <p className="mb-2 text-sm font-semibold text-foreground">Requests are made from your browser. CORS restrictions may apply.</p>
     </div>
   );
 }

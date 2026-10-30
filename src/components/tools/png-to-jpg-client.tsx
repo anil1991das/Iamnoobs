@@ -32,7 +32,7 @@ export default function PngToJpgClient() {
 
       {result && (
         <div className="rounded-xl border border-border bg-card p-4 text-sm">
-          <span className="text-muted">Output size: </span>
+          <span className="mb-2 text-sm font-semibold text-foreground">Output size: </span>
           <span className="font-semibold text-foreground">{formatFileSize(result.size)}</span>
         </div>
       )}

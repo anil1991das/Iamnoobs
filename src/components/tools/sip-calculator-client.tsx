@@ -31,7 +31,7 @@ export default function SipCalculatorClient() {
         <div className="rounded-xl border border-border bg-card p-6 space-y-3">
           <h3 className="text-lg font-semibold text-foreground">SIP Returns</h3>
           <div className="grid grid-cols-3 gap-3">
-            <div className="rounded-lg bg-accent/50 p-3 text-center"><span className="text-xs text-muted">Invested</span><p className="text-lg font-bold">₹{result.investedAmount.toLocaleString("en-IN")}</p></div>
+            <div className="rounded-lg bg-accent/50 p-3 text-center"><span className="mb-2 text-sm font-semibold text-foreground">Invested</span><p className="text-lg font-bold">₹{result.investedAmount.toLocaleString("en-IN")}</p></div>
             <div className="rounded-lg bg-green-500/10 p-3 text-center"><span className="text-xs text-green-600">Returns</span><p className="text-lg font-bold text-green-600">₹{result.estimatedReturns.toLocaleString("en-IN")}</p></div>
             <div className="rounded-lg bg-primary/10 p-3 text-center"><span className="text-xs text-primary">Total Value</span><p className="text-xl font-bold text-primary">₹{result.totalValue.toLocaleString("en-IN")}</p></div>
           </div>

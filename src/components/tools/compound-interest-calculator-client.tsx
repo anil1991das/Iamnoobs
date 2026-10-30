@@ -31,15 +31,15 @@ export default function CompoundInterestCalculatorClient() {
         <>
           <div className="grid grid-cols-3 gap-4">
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Total Amount</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Total Amount</p>
               <p className="text-2xl font-bold text-primary">${result.total.toLocaleString()}</p>
             </div>
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Total Interest</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Total Interest</p>
               <p className="text-2xl font-bold text-green-500">${result.totalInterest.toLocaleString()}</p>
             </div>
             <div className="rounded-xl border border-border bg-card p-4 text-center">
-              <p className="text-xs text-muted">Principal</p>
+              <p className="mb-2 text-sm font-semibold text-foreground">Principal</p>
               <p className="text-2xl font-bold">${parseFloat(principal).toLocaleString()}</p>
             </div>
           </div>

@@ -30,7 +30,7 @@ export default function PasswordStrengthCheckerClient() {
             <span className="text-sm font-semibold" style={{ color: colors[result.score] }}>{result.label}</span>
           </div>
           <div className="rounded-lg bg-accent/50 p-3">
-            <span className="text-sm text-muted">Entropy: </span>
+            <span className="mb-2 text-sm font-semibold text-foreground">Entropy: </span>
             <span className="text-sm font-medium text-foreground">{result.entropy} bits</span>
           </div>
           {result.feedback.length > 0 && (

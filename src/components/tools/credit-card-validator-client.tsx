@@ -23,8 +23,8 @@ export default function CreditCardValidatorClient() {
             <span className="text-2xl">{result.valid ? "✅" : "❌"}</span>
             <span className="text-lg font-semibold">{result.valid ? "Valid" : "Invalid"} Card Number</span>
           </div>
-          <p className="text-sm text-muted">Card Type: <strong>{result.type}</strong></p>
-          <p className="text-xs text-muted">Uses Luhn algorithm for validation. This only checks the number format, not whether the card is active.</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Card Type: <strong>{result.type}</strong></p>
+          <p className="mb-2 text-sm font-semibold text-foreground">Uses Luhn algorithm for validation. This only checks the number format, not whether the card is active.</p>
         </div>
       )}
     </>

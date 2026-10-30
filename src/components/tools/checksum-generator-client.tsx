@@ -32,7 +32,7 @@ export default function ChecksumGeneratorClient() {
       <ToolInput label="Text input" value={input} onChange={setInput} placeholder="Enter text to generate checksum..." />
       <div className="rounded-xl border border-border bg-card p-6">
         <label className="block text-sm font-medium text-foreground mb-2">Or upload a file</label>
-        <input type="file" onChange={(e) => setFile(e.target.files?.[0] || null)} className="text-sm" />
+        <input type="file" onChange={(e) => setFile(e.target.files?.[0] || null)} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground file:mr-3 file:rounded-lg file:border-0 file:bg-primary file:px-3 file:py-1 file:text-sm file:font-medium file:text-white" />
       </div>
       <div className="flex gap-2 flex-wrap">
         {algorithms.map((alg) => (

@@ -36,12 +36,12 @@ export default function ImageWatermarkClient() {
       <div className="rounded-xl border border-border bg-card p-6 space-y-4">
         <input type="file" accept="image/*" onChange={handleFile} className="text-sm" />
         <div className="grid grid-cols-2 gap-3">
-          <div><label className="text-xs text-muted">Watermark Text</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Watermark Text</label>
             <input type="text" value={text} onChange={(e) => setText(e.target.value)} className="w-full rounded-lg border border-border bg-background px-3 py-2 text-sm" /></div>
-          <div><label className="text-xs text-muted">Font Size: {fontSize}px</label>
+          <div><label className="mb-2 text-sm font-semibold text-foreground">Font Size: {fontSize}px</label>
             <input type="range" min="10" max="80" value={fontSize} onChange={(e) => setFontSize(Number(e.target.value))} className="w-full" /></div>
         </div>
-        <div><label className="text-xs text-muted">Opacity: {opacity}</label>
+        <div><label className="mb-2 text-sm font-semibold text-foreground">Opacity: {opacity}</label>
           <input type="range" min="0.1" max="1" step="0.1" value={opacity} onChange={(e) => setOpacity(Number(e.target.value))} className="w-full" /></div>
       </div>
       <ActionButtons onClear={() => { setImage(null); setResult(null); }} onProcess={handleApply} processLabel="Apply Watermark" disabled={!image || !text} />

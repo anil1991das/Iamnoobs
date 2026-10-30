@@ -34,8 +34,8 @@ export default function BreakEvenClient() {
       {result && (
         <div className="rounded-xl border border-border bg-card p-6 grid grid-cols-3 gap-3">
           <div className="rounded-lg bg-primary/10 p-4 text-center"><span className="text-xs text-primary">Break-Even Units</span><p className="text-2xl font-bold text-primary">{result.units.toLocaleString()}</p></div>
-          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="text-xs text-muted">Revenue Needed</span><p className="text-xl font-bold">₹{result.revenue.toLocaleString("en-IN")}</p></div>
-          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="text-xs text-muted">Contribution Margin</span><p className="text-xl font-bold">₹{result.contributionMargin}</p></div>
+          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="mb-2 text-sm font-semibold text-foreground">Revenue Needed</span><p className="text-xl font-bold">₹{result.revenue.toLocaleString("en-IN")}</p></div>
+          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="mb-2 text-sm font-semibold text-foreground">Contribution Margin</span><p className="text-xl font-bold">₹{result.contributionMargin}</p></div>
         </div>
       )}
     </>

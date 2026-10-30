@@ -52,16 +52,16 @@ export default function RegexTesterClient() {
         <div className="space-y-3">
           <div className="flex gap-4 text-sm">
             <span className="font-semibold text-foreground">{result.totalMatches} match{result.totalMatches !== 1 ? "es" : ""}</span>
-            <span className="text-muted">{result.executionTime.toFixed(2)}ms</span>
+            <span className="mb-2 text-sm font-semibold text-foreground">{result.executionTime.toFixed(2)}ms</span>
           </div>
           {result.matches.length > 0 && (
             <div className="max-h-64 overflow-auto rounded-xl border border-border bg-card p-3">
               {result.matches.slice(0, 100).map((m, i) => (
                 <div key={i} className="flex gap-3 border-b border-border py-1.5 text-xs last:border-0">
-                  <span className="text-muted">#{i + 1}</span>
+                  <span className="mb-2 text-sm font-semibold text-foreground">#{i + 1}</span>
                   <span className="font-mono text-primary">&quot;{m.match}&quot;</span>
-                  <span className="text-muted">at index {m.index}</span>
-                  {m.groups.length > 0 && <span className="text-muted">groups: [{m.groups.join(", ")}]</span>}
+                  <span className="mb-2 text-sm font-semibold text-foreground">at index {m.index}</span>
+                  {m.groups.length > 0 && <span className="mb-2 text-sm font-semibold text-foreground">groups: [{m.groups.join(", ")}]</span>}
                 </div>
               ))}
             </div>

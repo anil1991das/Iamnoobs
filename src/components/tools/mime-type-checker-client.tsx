@@ -17,7 +17,7 @@ export default function MimeTypeCheckerClient() {
       <input type="text" value={search} onChange={(e) => setSearch(e.target.value)} placeholder="Enter file extension (e.g., .pdf) or search..." className="w-full rounded-xl border border-border bg-background px-4 py-2.5 text-sm" />
       {search && result && (
         <div className="rounded-xl bg-accent/50 p-4">
-          <span className="text-sm text-muted">MIME Type: </span>
+          <span className="mb-2 text-sm font-semibold text-foreground">MIME Type: </span>
           <code className="text-sm font-mono text-primary">{result}</code>
         </div>
       )}

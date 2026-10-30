@@ -26,7 +26,7 @@ export default function ProfitMarginClient() {
         <div className="rounded-xl border border-border bg-card p-6 grid grid-cols-3 gap-3">
           <div className="rounded-lg bg-green-500/10 p-4 text-center"><span className="text-xs text-green-600">Gross Profit</span><p className="text-xl font-bold text-green-600">₹{result.grossProfit.toLocaleString("en-IN")}</p></div>
           <div className="rounded-lg bg-primary/10 p-4 text-center"><span className="text-xs text-primary">Profit Margin</span><p className="text-xl font-bold text-primary">{result.grossMargin}%</p></div>
-          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="text-xs text-muted">Markup</span><p className="text-xl font-bold">{result.markup}%</p></div>
+          <div className="rounded-lg bg-accent/50 p-4 text-center"><span className="mb-2 text-sm font-semibold text-foreground">Markup</span><p className="text-xl font-bold">{result.markup}%</p></div>
         </div>
       )}
     </>

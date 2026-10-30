@@ -23,18 +23,18 @@ export default function BorderRadiusGeneratorClient() {
 
       <div className="flex items-center gap-3">
         <label className="flex items-center gap-2 text-sm"><input type="checkbox" checked={linked} onChange={(e) => setLinked(e.target.checked)} /> Link corners</label>
-        <label className="space-y-1"><span className="text-xs text-muted">Color</span><input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="h-8 w-16 cursor-pointer rounded border border-border" /></label>
-        <label className="flex-1 space-y-1"><span className="text-xs text-muted">Size: {size}px</span><input type="range" min={50} max={300} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Color</span><input type="color" value={bgColor} onChange={(e) => setBgColor(e.target.value)} className="h-8 w-16 cursor-pointer rounded border border-border" /></label>
+        <label className="flex-1 space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Size: {size}px</span><input type="range" min={50} max={300} value={size} onChange={(e) => setSize(Number(e.target.value))} className="w-full" /></label>
       </div>
 
       {linked ? (
-        <label className="space-y-1"><span className="text-sm text-muted">All Corners: {tl}px</span><input type="range" min={0} max={150} value={tl} onChange={(e) => setAll(Number(e.target.value))} className="w-full" /></label>
+        <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">All Corners: {tl}px</span><input type="range" min={0} max={150} value={tl} onChange={(e) => setAll(Number(e.target.value))} className="w-full" /></label>
       ) : (
         <div className="grid grid-cols-2 gap-4">
-          <label className="space-y-1"><span className="text-sm text-muted">Top Left: {tl}px</span><input type="range" min={0} max={150} value={tl} onChange={(e) => setTl(Number(e.target.value))} className="w-full" /></label>
-          <label className="space-y-1"><span className="text-sm text-muted">Top Right: {tr}px</span><input type="range" min={0} max={150} value={tr} onChange={(e) => setTr(Number(e.target.value))} className="w-full" /></label>
-          <label className="space-y-1"><span className="text-sm text-muted">Bottom Left: {bl}px</span><input type="range" min={0} max={150} value={bl} onChange={(e) => setBl(Number(e.target.value))} className="w-full" /></label>
-          <label className="space-y-1"><span className="text-sm text-muted">Bottom Right: {br}px</span><input type="range" min={0} max={150} value={br} onChange={(e) => setBr(Number(e.target.value))} className="w-full" /></label>
+          <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Top Left: {tl}px</span><input type="range" min={0} max={150} value={tl} onChange={(e) => setTl(Number(e.target.value))} className="w-full" /></label>
+          <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Top Right: {tr}px</span><input type="range" min={0} max={150} value={tr} onChange={(e) => setTr(Number(e.target.value))} className="w-full" /></label>
+          <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Bottom Left: {bl}px</span><input type="range" min={0} max={150} value={bl} onChange={(e) => setBl(Number(e.target.value))} className="w-full" /></label>
+          <label className="space-y-1"><span className="mb-2 text-sm font-semibold text-foreground">Bottom Right: {br}px</span><input type="range" min={0} max={150} value={br} onChange={(e) => setBr(Number(e.target.value))} className="w-full" /></label>
         </div>
       )}
 

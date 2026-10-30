@@ -66,14 +66,14 @@ export default function TimezoneConverterClient() {
           <select value={fromTz} onChange={(e) => setFromTz(e.target.value)} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground focus:border-primary focus:outline-none">
             {timezones.map((tz) => <option key={tz} value={tz}>{tz}</option>)}
           </select>
-          <p className="mt-1 text-xs text-muted">{fromCurrent}</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">{fromCurrent}</p>
         </div>
         <div>
           <label className="mb-1.5 block text-sm font-medium text-foreground">To Timezone</label>
           <select value={toTz} onChange={(e) => setToTz(e.target.value)} className="w-full rounded-xl border border-border bg-card p-2.5 text-sm text-foreground focus:border-primary focus:outline-none">
             {timezones.map((tz) => <option key={tz} value={tz}>{tz}</option>)}
           </select>
-          <p className="mt-1 text-xs text-muted">{toCurrent}</p>
+          <p className="mb-2 text-sm font-semibold text-foreground">{toCurrent}</p>
         </div>
       </div>
 
